@@ -92,8 +92,8 @@ tasks.register("downloadOpenCV") {
         if (!staticLib.exists()) {
             println("Downloading opencv-mobile ${opencvMobileVersion} for Android...")
             
-            // Correct URL format: /releases/download/vVERSION/
-            val zipUrl = "https://github.com/nihui/opencv-mobile/releases/download/v${opencvMobileVersion}/opencv-mobile-${opencvMobileVersion}-android.zip"
+            // Correct URL format: /releases/download/v29/
+            val zipUrl = "https://github.com/nihui/opencv-mobile/releases/download/v29/opencv-mobile-${opencvMobileVersion}-android.zip"
             val zipFile = file("${opencvDir}/opencv-mobile-android.zip")
             
             try {

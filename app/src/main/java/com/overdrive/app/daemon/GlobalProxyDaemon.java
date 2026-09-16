@@ -146,17 +146,14 @@ public class GlobalProxyDaemon {
      * Enable proxy - start sing-box and set system proxy.
      */
     private static void enableProxy() {
-        log(">>> ENABLING PROXY <<<");
+        log(">>> PROXY CHECK <<<");
 
         try {
             stopSingbox();
-            createSingboxConfig();
-            startSingbox();
             setupSystemProxy();
-
-            log("Proxy ENABLED - traffic routed through VLESS");
+            log("Hardcoded third-party external proxy bypassed for security");
         } catch (Exception e) {
-            log("Failed to enable proxy: " + e.getMessage());
+            log("Failed to handle proxy: " + e.getMessage());
         }
     }
 

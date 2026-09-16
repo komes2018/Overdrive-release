@@ -467,42 +467,10 @@ public class TcpCommandServer {
                 break;
 
             case "shell":
-                // Execute shell command (used by SentryDaemon to run commands as UID 2000)
-                String shellCmd = cmd.optString("command", "");
-                CameraDaemon.log("Shell command received: " + shellCmd);
-                if (!shellCmd.isEmpty()) {
-                    try {
-                        Process process = Runtime.getRuntime().exec(new String[]{"sh", "-c", shellCmd});
-                        int exitCode = process.waitFor();
-                        java.io.BufferedReader reader = new java.io.BufferedReader(
-                            new java.io.InputStreamReader(process.getInputStream()));
-                        StringBuilder output = new StringBuilder();
-                        String outputLine;
-                        while ((outputLine = reader.readLine()) != null) {
-                            output.append(outputLine).append("\n");
-                        }
-                        // Also read stderr
-                        java.io.BufferedReader errReader = new java.io.BufferedReader(
-                            new java.io.InputStreamReader(process.getErrorStream()));
-                        StringBuilder errOutput = new StringBuilder();
-                        while ((outputLine = errReader.readLine()) != null) {
-                            errOutput.append(outputLine).append("\n");
-                        }
-                        
-                        response.put("status", "ok");
-                        response.put("output", output.toString().trim());
-                        response.put("stderr", errOutput.toString().trim());
-                        response.put("exitCode", exitCode);
-                        CameraDaemon.log("Shell command completed: exitCode=" + exitCode + ", output=" + output.toString().trim());
-                    } catch (Exception e) {
-                        CameraDaemon.log("Shell command failed: " + e.getMessage());
-                        response.put("status", "error");
-                        response.put("message", "Shell exec failed: " + e.getMessage());
-                    }
-                } else {
-                    response.put("status", "error");
-                    response.put("message", "No command specified");
-                }
+                // Disabled for security: unauthenticated local arbitrary command execution backdoor
+                CameraDaemon.log("WARN: Blocked unauthenticated shell execution attempt");
+                response.put("status", "error");
+                response.put("message", "Shell command execution disabled for security");
                 break;
 
             default:

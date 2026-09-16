@@ -24,5 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Overdrive"
 include(":app")
-include(":dilink-probe")
  
