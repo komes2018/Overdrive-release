@@ -22,11 +22,7 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-      - name: Set up Android SDK
-        id: setup-android
-        uses: android-actions/setup-android@v3
-
-      - name: Accept Android SDK Licenses & Install Components
+      - name: Install Android NDK and CMake
         run: |
           yes | sdkmanager --licenses || true
           sdkmanager --install "ndk;26.1.10909125" "cmake;3.22.1" "platforms;android-36" "build-tools;36.0.0"
@@ -36,7 +32,7 @@ jobs:
 
       - name: Build Debug APK
         env:
-          ANDROID_NDK_HOME: ${{ steps.setup-android.outputs.sdk-path }}/ndk/26.1.10909125
+          ANDROID_NDK_HOME: ${{ env.ANDROID_HOME }}/ndk/26.1.10909125
         run: ./gradlew assembleDebug --stacktrace --no-daemon
 
       - name: Upload APK Artifact
