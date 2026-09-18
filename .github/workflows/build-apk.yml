@@ -5,6 +5,9 @@ on:
   push:
     branches: [ main, master ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build Android APK
@@ -37,9 +40,41 @@ jobs:
           ANDROID_NDK_HOME: ${{ env.ANDROID_HOME }}/ndk/26.1.10909125
         run: ./gradlew assembleDebug --stacktrace --no-daemon
 
+      - name: Prepare APK Asset
+        run: |
+          mkdir -p release-assets
+          APK_FILE=$(find app/build/outputs/apk -name "*.apk" | head -1)
+          echo "Found built APK: $APK_FILE"
+          cp "$APK_FILE" release-assets/Overdrive-v48.18-cn-sec.apk
+          ls -lh release-assets/
+
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Overdrive-Debug-APK
-          path: app/build/outputs/apk/**/*.apk
+          path: release-assets/*.apk
           retention-days: 14
+
+      - name: Publish to GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref == 'refs/heads/main'
+        with:
+          tag_name: v48.18-cn-sec
+          name: OverDrive v48.18 - 中文深度汉化与安全加固版
+          body: |
+            ## OverDrive v48.18 中文深度精校与安全加固版
+
+            ### 🚀 本次更新亮点
+            - **全量深度精校车载中文本地化**：
+              - 补齐全部 304 项未翻译英文字符，彻底清除 281 个残存繁体字型（全库 0 繁体残留）。
+              - 彻底消灭上百处恶性生硬机翻：
+                - 车控与自动化修正：“还原尸”➔ 恢复仪表盘原始显示；“真菌/引导机/燃料盖”➔ 前机盖/后备箱/油箱盖；“自动耳光”➔ 自动大灯；“较近”➔ 关闭；“开火/点火”➔ 触发；“空火焰”➔ 双闪；“加热导轮”➔ 方向盘加热；“冰箱/沙桶/粉末/夹/圆”➔ 规范数学函数；ADAS 防护术语全面纠正。
+                - 行程与能耗修正：“旅行”➔ 行程；“马克斯km/h”➔ 最高车速；“末尾多项符”➔ 结束总里程；“伊莱夫/埃尔夫”➔ 累计爬升/下降；“石油使用”➔ 消耗燃油。
+                - 哨兵与仪表修正：“武装人员”➔ 已布防；“灰色相机”➔ 行车记录仪；“仪器集群/驱动程序集群”➔ 液晶仪表盘；“信息屏幕”➔ 中控大屏。
+            - **随身 Wi-Fi 熄火供电原生支持**：
+              - 哨兵监控设置中已标注原生支持的“熄火保持 USB 供电”选项，无需改动车辆线路即可实现随身 Wi-Fi 全时供网。
+            - **底层安全加固**：
+              - 彻底拆除原版 Oracle 代理中转与明文 TCP 远程 Shell 风险后门。
+          files: release-assets/Overdrive-v48.18-cn-sec.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
