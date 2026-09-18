@@ -169,7 +169,7 @@
                                     <strong id="dashPersonalizedRange">--</strong>
                                 </div>
                                 <div class="dash-range-value dash-range-value--vehicle">
-                                    <span data-i18n="dashboard.kicker_vehicle">Vehicle</span>
+                                    <span data-i18n="dashboard.range_vehicle_label">Vehicle</span>
                                     <strong id="dashVehicleRange">--</strong>
                                 </div>
                             </div>
@@ -2234,7 +2234,7 @@
                 var rangeBreakdown = document.getElementById('dashRangeBreakdown');
                 if (rangeBreakdown) {
                     var vehicleLabel =
-                        BYD.i18n.t('dashboard.kicker_vehicle') || 'Vehicle';
+                        BYD.i18n.t('dashboard.range_vehicle_label') || BYD.i18n.t('dashboard.kicker_vehicle') || 'Vehicle';
                     rangeBreakdown.textContent = snapshot.vehicleKm > 0
                         ? vehicleLabel + ' · ' + vehicleText : '';
                     rangeBreakdown.style.display = snapshot.vehicleKm > 0

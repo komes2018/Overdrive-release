@@ -2816,6 +2816,7 @@
     "kicker_position": "Position",
     "kicker_commands": "Commands",
     "kicker_vehicle": "Vehicle",
+    "range_vehicle_label": "Vehicle",
     "card_location": "Vehicle location",
     "card_commands": "Quick controls",
     "card_info": "Main info",
