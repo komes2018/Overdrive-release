@@ -441,10 +441,8 @@ var NOTIFLOG = {
     },
 
     _rangeLabel: function () {
-        var lang = (window.BYD && BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : undefined;
         function fmt(ms) {
-            try { return new Date(ms).toLocaleDateString(lang, { month: 'short', day: 'numeric' }); }
-            catch (e) { return ''; }
+            return (window.BYD && BYD.formatDate) ? BYD.formatDate(ms) : '';
         }
         if (this._rangeFrom != null && this._rangeTo != null) return fmt(this._rangeFrom) + ' – ' + fmt(this._rangeTo);
         if (this._rangeFrom != null) return fmt(this._rangeFrom) + ' –';
@@ -534,8 +532,7 @@ var NOTIFLOG = {
         var lang = (window.BYD && BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : undefined;
         var year = this._calMonth.getFullYear(), month = this._calMonth.getMonth();
         var monthDate = new Date(year, month, 1);
-        try { title.textContent = new Intl.DateTimeFormat(lang, { month: 'long' }).format(monthDate) + ' ' + year; }
-        catch (e) { title.textContent = monthDate.toLocaleDateString(lang, { month: 'long' }) + ' ' + year; }
+        title.textContent = (window.BYD && BYD.formatYearMonth) ? BYD.formatYearMonth(monthDate) : (monthDate.toLocaleDateString(lang, { month: 'long' }) + ' ' + year);
         grid.innerHTML = '';
 
         var wkFmt; try { wkFmt = new Intl.DateTimeFormat(lang, { weekday: 'short' }); } catch (e) { wkFmt = null; }
@@ -597,11 +594,9 @@ var NOTIFLOG = {
     _updateDateSummary: function () {
         var el = document.getElementById('nlDateSummary');
         var apply = document.getElementById('nlDateApply');
-        var lang = (window.BYD && BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : undefined;
         var self = this;
         function fmt(key) {
-            try { return new Date(key + 'T00:00:00').toLocaleDateString(lang, { month: 'short', day: 'numeric', year: 'numeric' }); }
-            catch (e) { return key; }
+            return (window.BYD && BYD.formatDate) ? BYD.formatDate(key) : key;
         }
         var txt, ready;
         if (this._draftFrom && this._draftTo) { txt = fmt(this._draftFrom) + '  –  ' + fmt(this._draftTo); ready = true; }
@@ -914,6 +909,9 @@ var NOTIFLOG = {
         try {
             if (sameDay) {
                 return d.toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' });
+            }
+            if (window.BYD && BYD.formatDate && (!lang || lang.indexOf('zh') === 0)) {
+                return BYD.formatDate(d) + ' ' + d.toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' });
             }
             return d.toLocaleDateString(lang, { month: 'short', day: 'numeric' }) + ' · ' +
                    d.toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' });

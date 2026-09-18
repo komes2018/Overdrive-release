@@ -2354,7 +2354,7 @@ BYD.performance = {
         // Format time
         const date = new Date(point.t);
         const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const dateStr = date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+        const dateStr = (window.BYD && BYD.formatDate) ? BYD.formatDate(date) : date.toLocaleDateString([], { month: 'short', day: 'numeric' });
         
         // Draw tooltip
         this.drawSocTooltipBox(ctx, x, y, point, timeStr, dateStr, width, padding, chartWidth);
@@ -2795,7 +2795,7 @@ BYD.performance = {
         // Tooltip box
         const date = new Date(point.t);
         const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const dateStr = date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+        const dateStr = (window.BYD && BYD.formatDate) ? BYD.formatDate(date) : date.toLocaleDateString([], { month: 'short', day: 'numeric' });
         const boxPadding = 10;
         const lineHeight = 16;
         const boxWidth = 130;
@@ -2876,7 +2876,7 @@ BYD.performance = {
         // Tooltip box
         const date = new Date(point.t);
         const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const dateStr = date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+        const dateStr = (window.BYD && BYD.formatDate) ? BYD.formatDate(date) : date.toLocaleDateString([], { month: 'short', day: 'numeric' });
         const boxPadding = 10;
         const lineHeight = 16;
         const boxWidth = 140;
@@ -3083,7 +3083,7 @@ BYD.performance = {
 
         if (data.lastUpdated && data.lastUpdated > 0) {
             var d = new Date(data.lastUpdated);
-            setEl('sohDetailUpdated', d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}));
+            setEl('sohDetailUpdated', (window.BYD && BYD.formatDateTime) ? BYD.formatDateTime(d) : (d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})));
         } else {
             setEl('sohDetailUpdated', '--');
         }

@@ -725,8 +725,7 @@ BYD.events = {
         const text = document.getElementById('calendarBtnText');
         
         if (this.selectedDate) {
-            const date = new Date(this.selectedDate + 'T00:00:00');
-            text.textContent = date.toLocaleDateString(BYD.i18n.getLang(), { month: 'short', day: 'numeric' });
+            text.textContent = (BYD.formatDate ? BYD.formatDate(this.selectedDate) : this.selectedDate);
             btn.classList.add('has-date');
         } else {
             text.textContent = BYD.i18n.t('events.select_date');
@@ -740,15 +739,8 @@ BYD.events = {
         const year = this.currentDate.getFullYear();
         const month = this.currentDate.getMonth();
         
-        // i18n: Use Intl.DateTimeFormat for localized month/weekday names instead of hardcoded English arrays.
         var monthDate = new Date(year, month, 1);
-        var monthName;
-        try {
-            monthName = new Intl.DateTimeFormat(BYD.i18n.getLang(), { month: 'long' }).format(monthDate);
-        } catch (e) {
-            monthName = monthDate.toLocaleDateString(BYD.i18n.getLang(), { month: 'long' });
-        }
-        title.textContent = monthName + ' ' + year;
+        title.textContent = (BYD.formatYearMonth ? BYD.formatYearMonth(monthDate) : (monthDate.toLocaleDateString(BYD.i18n.getLang(), { month: 'long' }) + ' ' + year));
         grid.innerHTML = '';
 
         var weekdayFmt;
@@ -1112,7 +1104,7 @@ BYD.events = {
     updateRecordingsTitle() {
         const title = document.getElementById('recordingsTitle');
         let prefix = this.selectedDate
-            ? new Date(this.selectedDate + 'T00:00:00').toLocaleDateString(BYD.i18n.getLang(), { month: 'short', day: 'numeric', year: 'numeric' })
+            ? (BYD.formatDate ? BYD.formatDate(this.selectedDate) : this.selectedDate)
             : BYD.i18n.t('events.all');
 
         var suffixKey;

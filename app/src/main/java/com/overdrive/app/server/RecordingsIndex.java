@@ -2488,9 +2488,9 @@ public final class RecordingsIndex {
     private static final ThreadLocal<SimpleDateFormat> FMT_TIME_ISO =
             ThreadLocal.withInitial(() -> new SimpleDateFormat("HH:mm:ss", Locale.US));
     private static final ThreadLocal<SimpleDateFormat> FMT_DATE_DISPLAY =
-            ThreadLocal.withInitial(() -> new SimpleDateFormat("MMM d, yyyy", Locale.US));
+            ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd", Locale.US));
     private static final ThreadLocal<SimpleDateFormat> FMT_TIME_DISPLAY =
-            ThreadLocal.withInitial(() -> new SimpleDateFormat("h:mm a", Locale.US));
+            ThreadLocal.withInitial(() -> new SimpleDateFormat("HH:mm:ss", Locale.US));
 
     private static void setNullableString(PreparedStatement ps, int idx, String v) throws Exception {
         if (v == null) ps.setNull(idx, java.sql.Types.VARCHAR);

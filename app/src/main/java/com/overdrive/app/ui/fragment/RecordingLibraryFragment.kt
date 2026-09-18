@@ -200,7 +200,7 @@ class RecordingLibraryFragment : Fragment() {
     // location). Set by the parent fragment's storage chips via applyAll.
     private val storageFilter = mutableSetOf<String>()
 
-    private val dayHeaderFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
+    private val dayHeaderFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
     // SOTA: Background executor for scanning operations
     private var scanExecutor = Executors.newSingleThreadExecutor()

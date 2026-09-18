@@ -538,6 +538,104 @@ BYD.i18n = (function () {
 })();
 
 /**
+ * Date and time formatting helpers.
+ * Adheres to standard Chinese YYYY-MM-DD / HH:mm:ss conventions when in Chinese locales (or fallback),
+ * and standard localized formats for other languages.
+ */
+BYD.formatDate = function (dateOrMs) {
+    if (!dateOrMs) return '';
+    if (typeof dateOrMs === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(dateOrMs)) {
+        var lang = (BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : '';
+        if (!lang || lang.indexOf('zh') === 0) return dateOrMs;
+        var parts = dateOrMs.split('-');
+        var dObj = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        try {
+            return dObj.toLocaleDateString(lang, { year: 'numeric', month: 'short', day: 'numeric' });
+        } catch (e) {
+            return dateOrMs;
+        }
+    }
+    var d = (dateOrMs instanceof Date) ? dateOrMs : new Date(dateOrMs);
+    if (isNaN(d.getTime())) return String(dateOrMs);
+    var curLang = (BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : '';
+    var y = d.getFullYear();
+    var m = d.getMonth() + 1;
+    var day = d.getDate();
+    var mStr = m < 10 ? '0' + m : '' + m;
+    var dayStr = day < 10 ? '0' + day : '' + day;
+    if (!curLang || curLang.indexOf('zh') === 0) {
+        return y + '-' + mStr + '-' + dayStr;
+    }
+    try {
+        return d.toLocaleDateString(curLang, { year: 'numeric', month: 'short', day: 'numeric' });
+    } catch (e) {
+        return y + '-' + mStr + '-' + dayStr;
+    }
+};
+
+BYD.formatMonthDay = function (dateOrMs) {
+    if (!dateOrMs) return '';
+    var d = (dateOrMs instanceof Date) ? dateOrMs : new Date(dateOrMs);
+    if (isNaN(d.getTime())) return String(dateOrMs);
+    var curLang = (BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : '';
+    var m = d.getMonth() + 1;
+    var day = d.getDate();
+    var mStr = m < 10 ? '0' + m : '' + m;
+    var dayStr = day < 10 ? '0' + day : '' + day;
+    if (!curLang || curLang.indexOf('zh') === 0) {
+        return mStr + '-' + dayStr;
+    }
+    try {
+        return d.toLocaleDateString(curLang, { month: 'short', day: 'numeric' });
+    } catch (e) {
+        return mStr + '-' + dayStr;
+    }
+};
+
+BYD.formatYearMonth = function (dateOrMs) {
+    if (!dateOrMs) return '';
+    var d = (dateOrMs instanceof Date) ? dateOrMs : new Date(dateOrMs);
+    if (isNaN(d.getTime())) return String(dateOrMs);
+    var curLang = (BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : '';
+    var y = d.getFullYear();
+    var m = d.getMonth() + 1;
+    if (!curLang || curLang.indexOf('zh') === 0) {
+        return y + '年' + m + '月';
+    }
+    try {
+        return new Intl.DateTimeFormat(curLang, { month: 'long', year: 'numeric' }).format(d);
+    } catch (e) {
+        return y + '-' + (m < 10 ? '0' + m : '' + m);
+    }
+};
+
+BYD.formatDateTime = function (dateOrMs) {
+    if (!dateOrMs) return '';
+    var d = (dateOrMs instanceof Date) ? dateOrMs : new Date(dateOrMs);
+    if (isNaN(d.getTime())) return String(dateOrMs);
+    var curLang = (BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : '';
+    var y = d.getFullYear();
+    var m = d.getMonth() + 1;
+    var day = d.getDate();
+    var hh = d.getHours();
+    var mm = d.getMinutes();
+    var ss = d.getSeconds();
+    var mStr = m < 10 ? '0' + m : '' + m;
+    var dayStr = day < 10 ? '0' + day : '' + day;
+    var hhStr = hh < 10 ? '0' + hh : '' + hh;
+    var mmStr = mm < 10 ? '0' + mm : '' + mm;
+    var ssStr = ss < 10 ? '0' + ss : '' + ss;
+    if (!curLang || curLang.indexOf('zh') === 0) {
+        return y + '-' + mStr + '-' + dayStr + ' ' + hhStr + ':' + mmStr + ':' + ssStr;
+    }
+    try {
+        return d.toLocaleDateString(curLang, { year: 'numeric', month: 'short', day: 'numeric' }) + ' ' + hhStr + ':' + mmStr;
+    } catch (e) {
+        return y + '-' + mStr + '-' + dayStr + ' ' + hhStr + ':' + mmStr + ':' + ssStr;
+    }
+};
+
+/**
  * Unit formatting utility. All backend values are stored in km/km·h.
  * When the user's vehicle is set to miles, this module converts for display.
  * The mode is updated from the /status response on every poll cycle.

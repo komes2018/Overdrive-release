@@ -1432,8 +1432,7 @@ const TRIPS = {
         const lang = BYD.i18n.getLang();
         const year = this._calMonth.getFullYear(), month = this._calMonth.getMonth();
         const monthDate = new Date(year, month, 1);
-        try { title.textContent = new Intl.DateTimeFormat(lang, { month: 'long' }).format(monthDate) + ' ' + year; }
-        catch (e) { title.textContent = monthDate.toLocaleDateString(lang, { month: 'long' }) + ' ' + year; }
+        title.textContent = BYD.formatYearMonth ? BYD.formatYearMonth(monthDate) : (monthDate.toLocaleDateString(lang, { month: 'long' }) + ' ' + year);
 
         grid.innerHTML = '';
         let wkFmt; try { wkFmt = new Intl.DateTimeFormat(lang, { weekday: 'short' }); } catch (e) { wkFmt = null; }
@@ -1492,8 +1491,7 @@ const TRIPS = {
         const fromTxt = document.getElementById('tripFromText');
         const toTxt = document.getElementById('tripToText');
         const fmt = (key) => {
-            try { return new Date(key + 'T00:00:00').toLocaleDateString(lang, { month: 'short', day: 'numeric', year: 'numeric' }); }
-            catch (e) { return key; }
+            return BYD.formatDate ? BYD.formatDate(key) : key;
         };
         const fromLabel = BYD.i18n.t('trip.daterange.from');
         const toLabel = BYD.i18n.t('trip.daterange.to');
@@ -1773,9 +1771,13 @@ const TRIPS = {
 
         const groups = {};
         trips.forEach(t => {
-            const day = new Date(t.startTime || t.start_time).toLocaleDateString(BYD.i18n.getLang(), {
-                weekday: 'long', month: 'short', day: 'numeric'
-            });
+            const dt = new Date(t.startTime || t.start_time);
+            const curLang = BYD.i18n.getLang();
+            const day = (curLang && curLang.indexOf('zh') === 0)
+                ? (BYD.formatDate ? BYD.formatDate(dt) : dt.toISOString().split('T')[0])
+                : dt.toLocaleDateString(curLang, {
+                    weekday: 'long', month: 'short', day: 'numeric'
+                });
             if (!groups[day]) groups[day] = [];
             groups[day].push(t);
         });
@@ -2862,7 +2864,9 @@ const TRIPS = {
             const recovered = this.isRecoveredTrip(trip);
             const start = new Date(trip.startTime || trip.start_time);
             const lang = BYD.i18n.getLang();
-            this.setEl('detailTitle', start.toLocaleDateString(lang, { weekday: 'long', month: 'long', day: 'numeric' }));
+            this.setEl('detailTitle', (lang && lang.indexOf('zh') === 0)
+                ? (BYD.formatDate ? BYD.formatDate(start) : start.toISOString().split('T')[0])
+                : start.toLocaleDateString(lang, { weekday: 'long', month: 'long', day: 'numeric' }));
             this.setEl('detailSubtitle', start.toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' }) +
                 ' – ' + new Date(trip.endTime || trip.end_time).toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' }));
             this.setEl('detailDuration', this.formatDuration(trip.durationSeconds || trip.duration_seconds || 0));
@@ -3424,7 +3428,11 @@ const TRIPS = {
             // Recent trips — clickable links
             html += '<div style="font-size:11px;color:var(--text-muted);margin:8px 0 6px;text-transform:uppercase;letter-spacing:0.5px;">Trips on this route (' + data.count + ')</div>';
             similar.slice(0, 5).forEach(function(t) {
-                var date = new Date(t.startTime || t.start_time).toLocaleDateString(BYD.i18n.getLang(), { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                var curLang = BYD.i18n.getLang();
+                var dObj = new Date(t.startTime || t.start_time);
+                var date = (curLang && curLang.indexOf('zh') === 0)
+                    ? (BYD.formatDateTime ? BYD.formatDateTime(dObj) : dObj.toISOString().replace('T', ' ').substring(0, 19))
+                    : dObj.toLocaleDateString(curLang, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
                 var energy = (t.energyUsedKwh || t.energy_used_kwh || 0);
                 var cost = t.tripCost || t.trip_cost || 0;
                 var isBest = t.id === stats.bestTripId;

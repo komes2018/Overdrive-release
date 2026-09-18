@@ -54,7 +54,7 @@ class RecordingSectionHeaderDecoration(
         today = context.getString(R.string.recording_lib_date_today),
         yesterday = context.getString(R.string.recording_lib_date_yesterday)
     )
-    private val multiDayDateFmt = SimpleDateFormat("EEE, MMM d", Locale.getDefault())
+    private val multiDayDateFmt = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
     private val textPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
         textSize = TypedValue.applyDimension(
@@ -176,9 +176,13 @@ class RecordingSectionHeaderDecoration(
         // API-sourced rows arrive with a pre-formatted bucketLabel
         // ("Today" / "Yesterday" / "MMM d, yyyy") — trust the server's
         // grouping and skip the in-process date math. The direct-FS
-        // fallback path (daemon unreachable) leaves bucketLabel null,
-        // so we keep the original logic for that case.
-        rec.bucketLabel?.let { return it }
+        rec.bucketLabel?.let { label ->
+            return when (label) {
+                "Today" -> labelStrings.today
+                "Yesterday" -> labelStrings.yesterday
+                else -> label
+            }
+        }
         return if (singleDayMode) timeOfDayLabel(rec.timestamp)
         else dateLabel(rec.timestamp)
     }

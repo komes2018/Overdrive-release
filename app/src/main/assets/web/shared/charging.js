@@ -1454,8 +1454,7 @@ var CHARGING = {
         var lang = (window.BYD && BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : undefined;
         var year = this._calMonth.getFullYear(), month = this._calMonth.getMonth();
         var monthDate = new Date(year, month, 1);
-        try { title.textContent = new Intl.DateTimeFormat(lang, { month: 'long' }).format(monthDate) + ' ' + year; }
-        catch (e) { title.textContent = monthDate.toLocaleDateString(lang, { month: 'long' }) + ' ' + year; }
+        title.textContent = (window.BYD && BYD.formatYearMonth) ? BYD.formatYearMonth(monthDate) : (monthDate.toLocaleDateString(lang, { month: 'long' }) + ' ' + year);
         grid.innerHTML = '';
 
         var wkFmt; try { wkFmt = new Intl.DateTimeFormat(lang, { weekday: 'short' }); } catch (e) { wkFmt = null; }
@@ -1510,8 +1509,7 @@ var CHARGING = {
         var fromTxt = document.getElementById('chargeFromText');
         var toTxt = document.getElementById('chargeToText');
         var fmt = function (key) {
-            try { return new Date(key + 'T00:00:00').toLocaleDateString(lang, { month: 'short', day: 'numeric', year: 'numeric' }); }
-            catch (e) { return key; }
+            return (window.BYD && BYD.formatDate) ? BYD.formatDate(key) : key;
         };
         // Show "From: <date>" / "To: <date>" so the field's role stays clear once
         // a date is chosen. Do NOT add the .has-date brand fill — two full-width
@@ -3719,10 +3717,14 @@ var CHARGING = {
 
     _fmtDate: function (ts) {
         if (!ts) return '';
+        var lang = (window.BYD && BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : '';
+        if (window.BYD && BYD.formatDateTime && (!lang || lang.indexOf('zh') === 0)) {
+            return BYD.formatDateTime(ts);
+        }
         try {
             var d = new Date(ts);
-            return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) + ' ' +
-                   d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+            return d.toLocaleDateString(lang || undefined, { month: 'short', day: 'numeric' }) + ' ' +
+                   d.toLocaleTimeString(lang || undefined, { hour: '2-digit', minute: '2-digit' });
         } catch (e) { return ''; }
     },
 
@@ -3747,11 +3749,15 @@ var CHARGING = {
             || (energy.sessionKwh != null && energy.sessionKwh > 0);
     },
 
-    // Date-only label (MMM D) for day-scale stats charts (SOH trend, cost bars).
+    // Date-only label for day-scale stats charts (SOH trend, cost bars).
     _fmtDay: function (ts) {
         if (!ts) return '';
+        var lang = (window.BYD && BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : '';
+        if (window.BYD && BYD.formatDate && (!lang || lang.indexOf('zh') === 0)) {
+            return BYD.formatDate(ts);
+        }
         try {
-            return new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+            return new Date(ts).toLocaleDateString(lang || undefined, { month: 'short', day: 'numeric' });
         } catch (e) { return ''; }
     },
 

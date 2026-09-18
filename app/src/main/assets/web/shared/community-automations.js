@@ -1157,6 +1157,7 @@ BYD.communityAutomations = {
         if (diff < hr) return this._t('community.time_minutes').replace('{n}', Math.floor(diff / min));
         if (diff < day) return this._t('community.time_hours').replace('{n}', Math.floor(diff / hr));
         if (diff < 30 * day) return this._t('community.time_days').replace('{n}', Math.floor(diff / day));
+        if (window.BYD && BYD.formatDate) return BYD.formatDate(ms);
         try { return new Date(ms).toLocaleDateString(); } catch (e) { return ''; }
     },
 

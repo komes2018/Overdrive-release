@@ -1027,10 +1027,14 @@
     // date portion if Date parsing isn't reliable on this WebView.
     function formatDate(iso) {
         if (!iso) return '';
+        if (window.BYD && BYD.formatDate) {
+            return BYD.formatDate(iso);
+        }
         try {
             var d = new Date(iso);
             if (!isNaN(d.getTime())) {
-                return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                var curLang = (window.BYD && BYD.i18n && BYD.i18n.getLang) ? BYD.i18n.getLang() : '';
+                return d.toLocaleDateString(curLang || undefined, { year: 'numeric', month: 'short', day: 'numeric' });
             }
         } catch (e) {}
         return String(iso).split('T')[0];

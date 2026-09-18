@@ -83,7 +83,7 @@ data class RecordingFile(
     val playbackSource: String get() = videoUrl ?: path
     
     val formattedDate: String
-        get() = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(Date(timestamp))
+        get() = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date(timestamp))
     
     val formattedTime: String
         get() = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date(timestamp))

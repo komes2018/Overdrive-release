@@ -326,10 +326,12 @@ public class EventCommandHandler implements TelegramCommandHandler {
     }
 
     private static String eventListDatePattern(Locale locale) {
+        if ("zh".equals(locale.getLanguage())) return "yyyy-MM-dd HH:mm";
         return "pt".equals(locale.getLanguage()) ? "dd MMM HH:mm" : "MMM dd HH:mm";
     }
 
     private static String eventCaptionDatePattern(Locale locale) {
+        if ("zh".equals(locale.getLanguage())) return "yyyy-MM-dd HH:mm:ss";
         return "pt".equals(locale.getLanguage()) ? "dd MMM, HH:mm:ss" : "MMM dd, HH:mm:ss";
     }
 }

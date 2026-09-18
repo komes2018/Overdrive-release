@@ -147,7 +147,7 @@ class RecordingsFragment : Fragment() {
      * recording that wasn't captured today.
      */
     private var dateNarrowed: Boolean = false
-    private val dayHeaderFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
+    private val dayHeaderFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
     // -------- Playlist for inline player prev/next --------
     private var currentPlaylist: List<RecordingFile> = emptyList()
@@ -688,7 +688,7 @@ class RecordingsFragment : Fragment() {
             RecordingUiText.distanceLabel(hostContext, recording)
                 ?: getString(R.string.recording_preview_not_available)
         root.findViewById<TextView>(R.id.tvPreviewRecordedValue)?.text =
-            SimpleDateFormat("MMM d, yyyy  h:mm a", Locale.getDefault())
+            SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
                 .format(Date(recording.timestamp))
         root.findViewById<TextView>(R.id.tvPreviewDurationValue)?.text =
             recording.formattedDuration.takeIf { recording.durationMs > 0 }
