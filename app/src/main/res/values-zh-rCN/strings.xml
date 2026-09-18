@@ -22,7 +22,7 @@
     <string name="cd_clear_logs">清晰的日志</string>
     <string name="cd_expand_collapse">扩张/崩</string>
     <string name="cd_recording_status">记录状态</string>
-    <string name="cd_trip_tracking_status">旅行跟踪状态</string>
+    <string name="cd_trip_tracking_status">行程跟踪状态</string>
     <string name="cd_mic_status">麦克风捕获状态</string>
     <string name="cd_replay_status">即时重播状态</string>
     <string name="cd_video_thumbnail">视频缩影图</string>
@@ -49,7 +49,7 @@
     <string name="cd_step_completed">完成的步骤</string>
     <string name="cd_permission_granted">授权</string>
     <string name="overlay_rec_inactive_label">其他国家</string>
-    <string name="overlay_trip_inactive_label">旅行</string>
+    <string name="overlay_trip_inactive_label">行程</string>
     <string name="overlay_mic_inactive_label">产品</string>
     <string name="overlay_replay_label" translatable="false">回放</string>
     <string name="overlay_mode_off_label" translatable="false">关闭</string>
@@ -180,7 +180,7 @@
     <string name="setup_autostart_enabled">开机自启已配置 ✓</string>
     <string name="setup_autostart_failed">无法自动配置自启 — 正在打开比亚迪自启动管理界面，请手动勾选允许。</string>
     <string name="setup_overlay_title">允许在其他应用程序上显示</string>
-    <string name="setup_overlay_body">在其他应用程序上,可显示浮动状态指标,以便记录和跟踪旅行.</string>
+    <string name="setup_overlay_body">在其他应用程序上,可显示浮动状态指标,以便记录和跟踪行程.</string>
     <string name="setup_overlay_button">打开叠加设置</string>
     <string name="onboarding_next">下一个</string>
     <string name="onboarding_back">后退</string>
@@ -220,7 +220,7 @@
     <string name="onboarding_camera_applying_title">正在应用-正在重新启动相机</string>
     <string name="onboarding_camera_applying_body">订阅将持续约10秒钟，黑暗和闪烁。这是正常的——收紧。</string>
     <string name="onboarding_camera_verify_title">快速检查</string>
-    <string name="onboarding_camera_verify_body">360张视图是否显示了精彩的图像，显示了面前的道路？ 如果订阅源出现错误，请点击 — — 没有损坏.</string>
+    <string name="onboarding_camera_verify_body">360° 全景画面是否正常，显示了车辆前方的道路？如果画面不对，请点击切换 —— 不会损坏。</string>
     <string name="onboarding_camera_verify_ok">向右</string>
     <string name="onboarding_camera_verify_repick">重新选择</string>
     <string name="onboarding_camera_windshield_title">记录中的前行带？(可选)</string>
@@ -228,7 +228,7 @@
     <string name="onboarding_camera_windshield_primary">显示我</string>
     <string name="onboarding_camera_windshield_skip">不要谢谢。</string>
     <string name="onboarding_vehicle_title">告诉 Overdrive 您的电池信息</string>
-    <string name="onboarding_vehicle_body">选择您的模型，我们填充了 kWh，或者输入自己(15-120)。 这使得范围和充电估计准确。您可以跳过并稍后设置。</string>
+    <string name="onboarding_vehicle_body">选择您的模型，我们填充了 kWh，或者输入自己(15-120)。 这使得续航里程和充电估算准确。您可以跳过并稍后设置。</string>
     <string name="onboarding_vehicle_primary">设置电池</string>
     <string name="onboarding_dash_tiles_title">你的鸡蛋一眼！</string>
     <string name="onboarding_dash_tiles_body">这些卡片是按钮 — 点击打开实时摄像头、录音、服务或您的车辆。</string>
@@ -236,7 +236,7 @@
     <string name="onboarding_dash_chips_body">顶部显示录制、服务和您的远程链接。他们自己更新了 — — 他们不是按钮。</string>
     <string name="onboarding_dash_chips_body_land">您的实时状态 — 录制、 服务和远程链接 — 在这里显示。它是自己的更新。</string>
     <string name="onboarding_done_title">Cockpit 已就绪</string>
-    <string name="onboarding_done_body">相机映射和电池组。点击实时观看您的订阅源 — 或随时探索更深的设置。</string>
+    <string name="onboarding_done_body">摄像头已映射且电池已设置。点击实时观看您的实时画面 — 或随时探索更深的设置。</string>
     <string name="onboarding_done_primary">完成</string>
     <string name="onboarding_done_secondary">探索设置</string>
     <string name="onboarding_help_cd">导游览</string>
@@ -247,7 +247,7 @@
     <string name="onboarding_expert_menu_body">快速走路穿过更深的设置 — — 您的车辆配置、集成、监视、诊断、服务和安全。您可以随时停止。</string>
     <string name="onboarding_expert_menu_start">开始游览</string>
     <string name="onboarding_expert_vehicle_title">车辆资料</string>
-    <string name="onboarding_expert_vehicle_body">点击车辆瓦片来设置电池大小和型号——它能使精确的范围和健康估计。</string>
+    <string name="onboarding_expert_vehicle_body">点击车辆卡片来设置电池大小和型号——它能使精确的范围和健康估计。</string>
     <string name="onboarding_expert_recordings_title">您的录音</string>
     <string name="onboarding_expert_recordings_body">用这个开关切换到Dashcam (连续+近距离剪切)和监视(停靠的传感器事件) - 每个都保留自己的库。 点击片段来播放。</string>
     <string name="onboarding_expert_live_title">实时摄像机</string>
@@ -263,7 +263,7 @@
     <string name="onboarding_expert_integrations_title">集成</string>
     <string name="onboarding_expert_integrations_body">连接 Telegram 警示，一个更好的路由规划器，MQTT 或 BYD 云。 每张卡片都在应用程序内打开它的设置。当所有东西的链接时，上面的避孕药都会转向绿化。</string>
     <string name="onboarding_expert_bydcloud_title">BYD 云解锁远程控制</string>
-    <string name="onboarding_expert_bydcloud_body">将您的BYD账户链接到这里允许您手机上的远程锁定、 刷入和骑手。将链接的账户和访问代码视为敏感的。</string>
+    <string name="onboarding_expert_bydcloud_body">将您的BYD账户链接到这里允许您在手机上进行远程锁车、闪灯和鸣笛。将链接的账户和访问代码视为敏感的。</string>
     <string name="onboarding_expert_surveillance_title">监视 &amp; 记录</string>
     <string name="onboarding_expert_surveillance_body">在此处微调检测、质量和存储。 这些是作为您的汽车服务的应用内配置页面打开-空白屏幕仅仅表示帮助者仍在开始。</string>
     <string name="onboarding_expert_camprobe_title">相机探测-小心的</string>
@@ -301,7 +301,7 @@
     <string name="zrok_reset_environment_desc">重置后您需要使用新的访问令牌重新启用 Zrok 环境。</string>
     <string name="reset_title">重新设置数据</string>
     <string name="reset_subtitle">按类别清除积累的数据</string>
-    <string name="reset_warning">这不能撤销.记录,旅行和电池历史将永久删除.</string>
+    <string name="reset_warning">这不能撤销.记录,行程和电池历史将永久删除.</string>
     <string name="reset_cat_trips">行程</string>
     <string name="reset_cat_trips_desc">旅程历史,航线,每周/每月的行程</string>
     <string name="reset_cat_soc_history">SoC &amp; 12V 历史</string>
@@ -318,8 +318,8 @@
     <string name="reset_cat_sentry_events_desc">监视活动剪辑和JSON侧车</string>
     <string name="reset_cat_proximity">近距离记录</string>
     <string name="reset_cat_proximity_desc">雷达触发事件MP4</string>
-    <string name="reset_cat_trip_files">旅行遥测文件</string>
-    <string name="reset_cat_trip_files_desc">在磁盘上进行 JSON 每次旅行车况遥测数据</string>
+    <string name="reset_cat_trip_files">行程遥测文件</string>
+    <string name="reset_cat_trip_files_desc">在磁盘上进行 JSON 每次行程车况遥测数据</string>
     <string name="recording_lib_chip_any">任何一个</string>
     <string name="recording_lib_chip_person">个人</string>
     <string name="recording_lib_chip_vehicle">车辆</string>
@@ -403,7 +403,7 @@
     <string name="battery_health_reset">重置SOH估计</string>
     <string name="battery_health_reset_desc">如果电池被更换或读数看起来不正确,使用.</string>
     <string name="soh_dialog_model_label">模型</string>
-    <string name="soh_dialog_pack_capacity_label">包装容量</string>
+    <string name="soh_dialog_pack_capacity_label">电池包容量</string>
     <string name="soh_dialog_estimated_capacity_label">有效产能</string>
     <string name="soh_dialog_calibration_anchor_label">最后校准</string>
     <string name="soh_dialog_source_user">用户组</string>
@@ -414,12 +414,12 @@
     <string name="soh_dialog_frame_anchor_label">实测满电可用电量</string>
     <string name="soh_dialog_frame_anchor_format">完全观察到的%1$.2f kWh (%2$d/%3$d样本)</string>
     <string name="soh_dialog_frame_anchor_pending_format">完全观察到的%1$.2f kWh (采集%2$d/%3$d样本)</string>
-    <string name="soh_dialog_frame_mismatch_title">包装容量框架不匹配</string>
-    <string name="soh_dialog_frame_mismatch_format">车辆报告%1$.1f kWh在充电状态下,但包装容量设置为%2$.1f kWh.上面的数字可能反映了单位不匹配 (名牌与可用),而不是实际退化.考虑输入%1$.1f kWh以匹配车辆报告.</string>
+    <string name="soh_dialog_frame_mismatch_title">电池包容量框架不匹配</string>
+    <string name="soh_dialog_frame_mismatch_format">车辆报告%1$.1f kWh在充电状态下,但电池包容量设置为%2$.1f kWh.上面的数字可能反映了单位不匹配 (标称容量与可用),而不是真实衰减.考虑输入%1$.1f kWh以匹配车辆报告.</string>
     <string name="soh_dialog_use_observed_value">使用观测值</string>
     <string name="soh_dialog_use_observed_value_pending">保存中…</string>
-    <string name="toast_soh_observed_value_saved">包装容量更新至%1$.1f kWh.</string>
-    <string name="toast_soh_observed_value_failed">无法更新包装容量 (%1$s).</string>
+    <string name="toast_soh_observed_value_saved">电池包容量更新至%1$.1f kWh.</string>
+    <string name="toast_soh_observed_value_failed">无法更新电池包容量 (%1$s).</string>
     <string name="diagnostics_battery_needs_review">需要确认</string>
     <string name="dialog_ok">确定</string>
     <string name="toast_updated_to">更新至%1$s</string>
@@ -504,7 +504,7 @@
     <string name="dialog_traffic_cannot_check_title">无法检查状态</string>
     <string name="dialog_traffic_cannot_check_message">应用程序需要ADB访问来管理系统包.请确保:\n\n• 在开发者选项中已启用USB调试\n•已接受ADB授权提示\n\n状态将自动更新,一旦连接.</string>
     <string name="dialog_traffic_disable_title">关闭BYD交通监视器?</string>
-    <string name="dialog_traffic_disable_message">BYD交通监测器 (com.byd.trafficmonitor) 是一个内置系统应用程序,持续监测后台道路交通状况.\n\n️ 为什么禁用它?\n\n• 消耗移动数据 (即使停车时)\n• 使用CPU和电池在后台\n• 不需要使用单独的导航应用程序\n• 可以干扰仪表摄像头的网络使用\n\n 这可以安全禁用 它只影响地图上的内置交通覆盖.您的导航,Bluetooth和所有其他汽车功能都不受影响.\n\n 禁用后需要硬重启 (保持中部控制台按 5 秒).</string>
+    <string name="dialog_traffic_disable_message">BYD交通监测器 (com.byd.trafficmonitor) 是一个内置系统应用程序,持续监测后台道路交通状况.\n\n️ 为什么禁用它?\n\n• 消耗移动数据 (即使停车时)\n• 使用CPU和电池在后台\n• 不需要使用单独的导航应用程序\n• 可以干扰仪表摄像头的网络使用\n\n 这可以安全禁用 它只影响地图上的内置交通覆盖.您的导航,Bluetooth和所有其他汽车功能都不受影响.\n\n 禁用后需要硬重启 (长按中控台滚轮 5 秒).</string>
     <string name="dialog_traffic_enable_title">再启用BYD交通监测器?</string>
     <string name="dialog_traffic_enable_message">目前,BYD 交通监测器已被禁用.\n\n重新启用将恢复导航地图内置的交通覆盖.请注意,它将在背景中运行并消耗移动数据.\n\n启动后需要硬式重新启动 (保持中心控制台按5秒).</string>
     <string name="dialog_traffic_status_title">交通监视器%1$s</string>
@@ -522,11 +522,11 @@
     <string name="reset_label_recordings">录像</string>
     <string name="reset_label_sentry_events">监控活动</string>
     <string name="reset_label_proximity">近距离记录</string>
-    <string name="reset_label_trip_files">旅行遥测文件</string>
+    <string name="reset_label_trip_files">行程遥测文件</string>
     <string name="toast_access_code_copied">复制访问代码</string>
     <string name="dialog_regenerate_token_title">复兴标志</string>
-    <string name="dialog_regenerate_token_message">重新生成访问令牌将使当前令牌失效，所有正在连接的会话将被强制登出。是否继续？</string>
-    <string name="toast_token_regenerated_logged_out">已生成新令牌，所有活跃会话已强制登出。</string>
+    <string name="dialog_regenerate_token_message">重新生成访问令牌将使当前令牌失效，所有活跃连接将被强制登出。是否继续？</string>
+    <string name="toast_token_regenerated_logged_out">已生成新令牌，所有活跃连接已强制登出。</string>
     <string name="toast_token_regenerated_restart">代蒙可能需要重新启动才能应用.</string>
     <string name="toast_token_regenerated_no_notify">访问令牌已重新生成，但未能成功通知后台守护进程。</string>
     <string name="toast_token_regenerated">访问令牌已重新生成</string>
@@ -692,7 +692,7 @@
     <string name="settings_overlay_subtitle">选择漂浮状态药物的哪些部分保持可见.</string>
     <string name="settings_overlay_camera_title">摄像头指标</string>
     <string name="settings_overlay_camera_subtitle">在录音活动期间显示REC/ PROX标志.</string>
-    <string name="settings_overlay_trip_title">指向旅行</string>
+    <string name="settings_overlay_trip_title">行程指示器</string>
     <string name="settings_overlay_trip_subtitle">在行程记录与监测运行时，在屏幕上显示行程悬浮小胶囊。</string>
     <string name="settings_overlay_replay_title">即时回放悬浮窗</string>
     <string name="settings_overlay_replay_subtitle">在屏幕上显示悬浮胶囊卡片，点击可一键回放并保存最近几分钟的行车记录片段。</string>
@@ -702,12 +702,12 @@
     <string name="remote_voice_mute">静音远程对讲</string>
     <string name="remote_voice_unmute">恢复远程对讲</string>
     <string name="remote_voice_notification_title">远程语音对讲进行中</string>
-    <string name="remote_voice_notification_text">正在接收来自已认证 OverDrive 会话的实时语音</string>
+    <string name="remote_voice_notification_text">正在接收来自已认证 OverDrive 远程连接的实时语音</string>
     <string name="settings_remote_communication_title">远程通信与座舱对讲</string>
     <string name="settings_remote_communication_subtitle">开启通过网页端控制台进行远程喊话对讲、车内收音监听及发送文字弹幕。若悬浮窗权限提示“需要授权”，请点击并允许“显示在其他应用上层”。</string>
     <string name="settings_remote_voice_title">启用远程语音喊话</string>
     <string name="settings_remote_listener_title" ns0:ignore="MissingTranslation">启用座舱车内收音监听</string>
-    <string name="settings_remote_listener_subtitle" ns0:ignore="MissingTranslation">在车辆上电时，允许已授权的实时查看或对讲会话通过车内麦克风收音监听。</string>
+    <string name="settings_remote_listener_subtitle" ns0:ignore="MissingTranslation">在车辆上电时，允许已授权的远程连接通过车内麦克风进行实时查看或对讲收音。</string>
     <string name="settings_remote_audio_channel_title" ns0:ignore="MissingTranslation">音频通道兼容性</string>
     <string name="settings_remote_audio_channel_subtitle" ns0:ignore="MissingTranslation">媒体通道使用常规扬声器和麦克风通路。导航通道匹配 DiLink 混音通路与 8 kHz 麦克风录音采样。</string>
     <string name="settings_remote_audio_channel_media" ns0:ignore="MissingTranslation">媒体通道</string>
@@ -781,9 +781,9 @@
     <string name="settings_backup_restore_confirm_msg">此操作将用备份替换您当前的 Overdrive 设置并重新加载服务。它仅适用于创建该备份时所用的同一台车机。</string>
     <string name="settings_backup_restore_confirm_btn">恢复</string>
     <string name="settings_backup_restart_hint">设置已恢复。重启相机守护进程 (Daemons = 相机-&gt; 重启) 以确保每个恢复的设置都已应用。</string>
-    <string name="settings_backup_trips_prompt">包括您的旅行历史记录(距离、能源、成本、分数、起始/结束位置？不包括每次旅行的详细遥测数据。 该文件将包含您的位置历史记录——保持其隐私。</string>
+    <string name="settings_backup_trips_prompt">包括您的行程历史记录(距离、能源、成本、分数、起始/结束位置？不包括每次行程的详细遥测数据。 该文件将包含您的位置历史记录——保持其隐私。</string>
     <string name="settings_backup_settings_only">仅设置</string>
-    <string name="settings_backup_with_trips">包括旅行</string>
+    <string name="settings_backup_with_trips">包括行程</string>
     <string name="settings_about_support_section">由像你这样的人来推动</string>
     <string name="settings_about_support_share_title">告诉另一位车主</string>
     <string name="settings_about_support_share_value">每个共享的链接都能帮助另一个BYD的所有者发现Overdrive.</string>
@@ -791,7 +791,7 @@
     <string name="settings_about_support_share_chooser">分享 Overdrive</string>
     <string name="settings_about_open_link_failed">无法打开链接.</string>
     <string name="settings_about_open_link_copied">没有浏览器. URL复制: %1$s</string>
-    <string name="settings_about_support_kofi_title">在下一个版本中加油</string>
+    <string name="settings_about_support_kofi_title">赞助下一次更新</string>
     <string name="settings_about_support_kofi_value">一杯咖啡让晚上的承诺持续下去.</string>
     <string name="settings_about_support_kofi_url" translatable="false">https://ko-fi.com/E1E71XALHX</string>
     <string name="settings_about_license_title">许可证</string>
@@ -992,7 +992,7 @@
     <string name="settings_screenshot_privacy_body">在原生界面与网页端截屏中，对 IP 地址、网址 URL、地理坐标、位置文本、二维码、视频缩略图及摄像头画面进行模糊遮罩处理。此功能为辅助防护，分享截图前仍请人工核对。</string>
     <string name="settings_screenshot_privacy_save_failed">无法保存截图隐私模式设置。</string>
     <string name="settings_security_title">安全</string>
-    <string name="settings_security_subtitle">锁定OverDrive应用，否则乘客和阀无法在没有您的 PIN 码的情况下打开它。</string>
+    <string name="settings_security_subtitle">锁定 OverDrive 应用，防止乘客和代客泊车人员在没有您的 PIN 码的情况下打开它。</string>
     <string name="settings_security_stance_title">仅锁定界面</string>
     <string name="settings_security_stance_body">监视、录制、威慑、警报和后台服务在锁定应用程序时继续运行。PIN码仅锁定 OverDrive 界面，别无其他。</string>
     <string name="settings_security_overline_lock">应用锁</string>
@@ -1158,9 +1158,9 @@
     <string name="roadsense_map_offline">离线地图数据不可用</string>
     <string name="roadsense_map_clear_search">清除搜索</string>
     <string name="roadsense_map_routes_title">选择路线</string>
-    <string name="roadsense_map_routes_to">前往 %1 的路线</string>
+    <string name="roadsense_map_routes_to">前往 %1$s 的路线</string>
     <string name="roadsense_map_routes_cancel">取消</string>
-    <string name="roadsense_map_route_option">路线 %1</string>
+    <string name="roadsense_map_route_option">路线 %1$d</string>
     <string name="roadsense_map_fastest">最快的</string>
     <string name="roadsense_map_start">开始</string>
     <string name="roadsense_map_your_location">您的位置</string>
@@ -1208,7 +1208,7 @@
     <string name="carnav_navigate_fail">原车导航拒绝了该导航请求</string>
     <string name="carnav_saved_ok">已成功保存至收藏夹</string>
     <string name="carnav_failed">无法连接原车导航: %1$s</string>
-    <string name="roadsense_map_search_to_save">搜索地点并设为 %1</string>
+    <string name="roadsense_map_search_to_save">搜索地点并设为 %1$s</string>
     <string name="roadsense_map_trip_restored">行程已恢复</string>
     <string name="cloudflared_token_storage_note">令牌安全地存储并在应用程序和守护进程之间共享。</string>
     <string name="cloudflared_token_hint">输入 cloudflared 令牌</string>
