@@ -254,7 +254,7 @@
                                 <input type="text" id="formClientId" placeholder="Auto-generated" data-i18n-attr="placeholder:mqtt.auto_gen">
                             </div>
                             <div class="form-group">
-                                <label>QoS</label>
+                                <label data-i18n="mqtt.label_qos">QoS</label>
                                 <select id="formQos">
                                     <option value="0" data-i18n="mqtt.qos_0">0 - Fire &amp; Forget</option>
                                     <option value="1" data-i18n="mqtt.qos_1">1 - At Least Once</option>
@@ -375,13 +375,13 @@
                     <div class="card-header">
                         <div class="card-title">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                            Live Telemetry Preview
+                            <span data-i18n="mqtt.telemetry_title">Live Telemetry Preview</span>
                         </div>
                     </div>
                     <div class="card-body telemetry-scroll" style="padding:0;">
                         <table class="telemetry-table">
                             <tbody id="telemetryBody">
-                                <tr><td colspan="2" style="text-align:center;color:var(--text-muted);padding:24px;">--</td></tr>
+                                <tr><td colspan="2" style="text-align:center;color:var(--text-muted);padding:24px;" data-i18n="mqtt.telemetry_waiting">Waiting for telemetry data…</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -396,7 +396,7 @@
     <script src="../shared/auth.js"></script>
     <script src="../shared/core.js?v=20"></script>
     <script src="../shared/update-flow.js"></script>
-    <script src="../shared/mqtt.js?v=3"></script>
+    <script src="../shared/mqtt.js?v=4"></script>
     <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('open');

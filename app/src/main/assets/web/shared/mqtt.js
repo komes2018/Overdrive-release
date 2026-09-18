@@ -589,17 +589,22 @@ const MQTT = {
         for (const k of extras) ordered.push(k);
 
         if (ordered.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;color:var(--text-muted);padding:24px;">--</td></tr>';
+            const waitingText = (BYD.i18n && BYD.i18n.t) ? BYD.i18n.t('mqtt.telemetry_waiting') : '--';
+            tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;color:var(--text-muted);padding:24px;">' + this.esc(waitingText) + '</td></tr>';
             return;
         }
 
-        // Build with textContent (no innerHTML key/value injection). Safer and
-        // avoids re-parsing the whole tree if a string ever contains '<'.
         const rows = [];
         for (const k of ordered) {
             const tr = document.createElement('tr');
             const tdK = document.createElement('td');
-            tdK.textContent = k;
+            const i18nKey = 'mqtt.tlm_' + k;
+            const label = (BYD.i18n && BYD.i18n.t) ? BYD.i18n.t(i18nKey) : '';
+            if (label && label !== i18nKey) {
+                tdK.innerHTML = '<span style="color:var(--text-primary);font-weight:500;">' + this.esc(label) + '</span><span style="display:block;font-size:11px;color:var(--text-muted);font-family:\'JetBrains Mono\',monospace;margin-top:1px;">' + this.esc(k) + '</span>';
+            } else {
+                tdK.textContent = k;
+            }
             const tdV = document.createElement('td');
             tdV.textContent = this._tlmFormat(k, t[k]);
             tr.appendChild(tdK);
