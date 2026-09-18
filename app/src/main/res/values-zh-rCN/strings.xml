@@ -206,7 +206,7 @@
     <string name="onboarding_camera_intro_body">让我们告诉 Overdrive 哪个摄像头是您的 360 全景视图，哪个是您的 dashcam。大约需要一分钟，稍后您也可以更改。</string>
     <string name="onboarding_camera_intro_primary">开始</string>
     <string name="onboarding_camera_opening_title">打开相机设置…</string>
-    <string name="onboarding_camera_opening_body">从您的摄像头加载现场预览。这可能需要几秒钟。</string>
+    <string name="onboarding_camera_opening_body">正在加载摄像头实时画面预览，这通常需要几秒钟。</string>
     <string name="onboarding_camera_pano_title">这是您的360次视图</string>
     <string name="onboarding_camera_pano_body">使用箭头来查找已修剪的四号图像。请从BOTOM阅读：左下是REAR，右下是LEFT一侧。</string>
     <string name="onboarding_camera_dashcam_title">现在找到前方摄像头</string>
@@ -218,7 +218,7 @@
     <string name="onboarding_camera_pick_dash_body">在这张卡片中选择您早些时候发现的 dashcam 号码 — 或将它留在AUTO上。</string>
     <string name="onboarding_camera_save_primary">保存 &amp; 重启</string>
     <string name="onboarding_camera_applying_title">正在应用-正在重新启动相机</string>
-    <string name="onboarding_camera_applying_body">订阅将持续约10秒钟，黑暗和闪烁。这是正常的——收紧。</string>
+    <string name="onboarding_camera_applying_body">画面将短暂黑屏并闪烁约 10 秒，此属正常现象，请稍候。</string>
     <string name="onboarding_camera_verify_title">快速检查</string>
     <string name="onboarding_camera_verify_body">360° 全景画面是否正常，显示了车辆前方的道路？如果画面不对，请点击切换 —— 不会损坏。</string>
     <string name="onboarding_camera_verify_ok">向右</string>
@@ -244,14 +244,14 @@
     <string name="onboarding_expert_chapter_label">%1$d 第 %2$d 章</string>
     <string name="onboarding_expert_finish">完成</string>
     <string name="onboarding_expert_menu_title">导游览</string>
-    <string name="onboarding_expert_menu_body">快速走路穿过更深的设置 — — 您的车辆配置、集成、监视、诊断、服务和安全。您可以随时停止。</string>
+    <string name="onboarding_expert_menu_body">快速导览进阶功能设置 — 包含车辆配置、扩展集成、哨兵监控、系统诊断、守护服务与安全防护。您可随时退出。</string>
     <string name="onboarding_expert_menu_start">开始游览</string>
     <string name="onboarding_expert_vehicle_title">车辆资料</string>
     <string name="onboarding_expert_vehicle_body">点击车辆卡片来设置电池大小和型号——它能使精确的范围和健康估计。</string>
     <string name="onboarding_expert_recordings_title">您的录音</string>
-    <string name="onboarding_expert_recordings_body">用这个开关切换到Dashcam (连续+近距离剪切)和监视(停靠的传感器事件) - 每个都保留自己的库。 点击片段来播放。</string>
+    <string name="onboarding_expert_recordings_body">使用此开关在行车记录仪（连续录像 + 近距防护片段）与驻车哨兵（停放期间传感器告警事件）之间切换 — 两者分别归档。点击任意片段即可播放。</string>
     <string name="onboarding_expert_live_title">实时摄像机</string>
-    <string name="onboarding_expert_live_body">从这里打开现场实时监视所有摄像头。在驱动器前或停在附近时操作查看视图。</string>
+    <string name="onboarding_expert_live_body">从此处开启全景实时监控。适合在驾车出发前或停在车旁时快速查看车身周边画面。</string>
     <string name="onboarding_expert_trips_title">修剪历史</string>
     <string name="onboarding_expert_trips_body">行程记录每个驱动器——路线、距离、持续时间和能量使用——以便你可以检查车在哪里。</string>
     <string name="onboarding_expert_roadsense_title">RoadSense 路况感知</string>
@@ -264,16 +264,16 @@
     <string name="onboarding_expert_integrations_body">连接 Telegram 警示，一个更好的路由规划器，MQTT 或 BYD 云。 每张卡片都在应用程序内打开它的设置。当所有东西的链接时，上面的避孕药都会转向绿化。</string>
     <string name="onboarding_expert_bydcloud_title">BYD 云解锁远程控制</string>
     <string name="onboarding_expert_bydcloud_body">将您的BYD账户链接到这里允许您在手机上进行远程锁车、闪灯和鸣笛。将链接的账户和访问代码视为敏感的。</string>
-    <string name="onboarding_expert_surveillance_title">监视 &amp; 记录</string>
+    <string name="onboarding_expert_surveillance_title">哨兵监控与录像</string>
     <string name="onboarding_expert_surveillance_body">在此处微调检测、质量和存储。 这些是作为您的汽车服务的应用内配置页面打开-空白屏幕仅仅表示帮助者仍在开始。</string>
     <string name="onboarding_expert_camprobe_title">相机探测-小心的</string>
-    <string name="onboarding_expert_camprobe_body">这个重新映射实时相机为每个角色提供即可重启相机。 只有在订阅看来错误时才能更改它 — — 你早些时候在指南中设置了这个。</string>
-    <string name="onboarding_expert_traffic_title">流量监视器 — 需要远程访问</string>
-    <string name="onboarding_expert_traffic_body">BYD内置的流量监视器阻止其他应用使用车内置的SIM。 如果你想要远距离通过 BYD SIM卡到达你的汽车，你必须在这里禁用它。车机中控屏重启以应用更改。</string>
+    <string name="onboarding_expert_camprobe_body">用于重新映射各路物理摄像头的通道角色并重启摄像头服务。若画面一切正常，请勿改动此项。</string>
+    <string name="onboarding_expert_traffic_title">比亚迪路况监测服务 — 远程访问前置要求</string>
+    <string name="onboarding_expert_traffic_body">比亚迪原厂内置的 Traffic Monitor（路况监测器）会独占并阻止第三方应用使用车机内置车联网 SIM 卡。若希望通过原车流量卡远程连入车机，必须在此禁用该服务。修改后车机需重启生效。</string>
     <string name="onboarding_expert_daemons_title">服务 — 小心处理</string>
-    <string name="onboarding_expert_daemons_body">这些开关启动和停止后台服务。 关闭摄像头、监视或ACS录制停止录制，并将它们禁用直到你重新开启——即使在重启后也是如此。</string>
+    <string name="onboarding_expert_daemons_body">用于启停后台核心守护进程。关闭摄像头服务、哨兵监控或熄火录像将停止录制，即使车机重启后也将保持关闭，直到您手动重新开启。</string>
     <string name="onboarding_expert_security_title">使用 PIN 码锁定</string>
-    <string name="onboarding_expert_security_body">设置一个 PIN 码来为共享车辆设置门。当应用程序被锁定时，监视和录制将继续运行。 忘记的 PIN 只能通过 USB 从计算机中清除。</string>
+    <string name="onboarding_expert_security_body">设置保护 PIN 码以防止共用车人误操作设置。即使应用处于锁定状态，哨兵安防与后台录像仍会照常运行。若遗忘 PIN 码，只能通过电脑连接 USB 调试清除。</string>
     <string name="onboarding_expert_reset_title">重置数据 - 永久性数据</string>
     <string name="onboarding_expert_reset_body">这会擦除录音、事件和设置，不能撤消。如果你出售了这辆车——不是正常使用的一部分。</string>
     <string name="onboarding_expert_done_title">那是游览</string>
@@ -293,8 +293,8 @@
     <string name="adb_console_hero_title">电脑控制台</string>
     <string name="adb_console_hero_subtitle">在设备上运行 shell 命令</string>
     <string name="webview_loading">装载...</string>
-    <string name="webview_camera_daemon_not_running">摄像头的 Daemon 没有运行</string>
-    <string name="webview_start_camera_daemon">启动摄像头守护进程从守护进程屏幕访问这个页面.</string>
+    <string name="webview_camera_daemon_not_running">摄像头守护进程未运行</string>
+    <string name="webview_start_camera_daemon">请在“守护进程”页面启动摄像头后台服务后再访问此页面。</string>
     <string name="zrok_enable_token_hint">启用代码</string>
     <string name="zrok_token_storage_note">访问令牌安全保存在车机本地，并在应用与后台守护进程之间共享。</string>
     <string name="zrok_reset_environment">重置Zrok环境</string>
@@ -305,9 +305,9 @@
     <string name="reset_cat_trips">行程</string>
     <string name="reset_cat_trips_desc">旅程历史,航线,每周/每月的行程</string>
     <string name="reset_cat_soc_history">SoC &amp; 12V 历史</string>
-    <string name="reset_cat_soc_history_desc">电源电源样本,充电会议,电压记录</string>
+    <string name="reset_cat_soc_history_desc">动力电池 SoC 采样点、充电记录与电压日志</string>
     <string name="reset_cat_soh">SOH校准</string>
-    <string name="reset_cat_soh_desc">从BMS中重新检测名额容量,重新种植估计</string>
+    <string name="reset_cat_soh_desc">重新检测 BMS 标称容量，并重置 SOH 预估模型</string>
     <string name="reset_cat_abrp_token">ABRP 访问令牌</string>
     <string name="reset_cat_abrp_token_desc">禁用ABRP远程测量,直到修复</string>
     <string name="reset_cat_byd_cloud">BYD 云权证</string>
@@ -364,7 +364,7 @@
     <string name="recording_lib_empty_body">尝试调整您的日期范围或芯片过滤器。</string>
     <string name="recording_lib_empty_clear_filters">清除过滤器</string>
     <string name="recording_lib_empty_disk_title">还没有记录</string>
-    <string name="recording_lib_empty_disk_body">一旦跟踪摄像头或监视管道写入一段片段，捕获就会立即显示在这里。</string>
+    <string name="recording_lib_empty_disk_body">一旦行车记录仪或哨兵监控录制并落盘生成视频，视频片段将立即在此展示。</string>
     <string name="recording_lib_building_index_title">建筑库索引</string>
     <string name="recording_lib_building_index_body">守护进程扫描您的录音。</string>
     <string name="recording_lib_building_index_progress">已索引 %1$d 的 %2$d 片段…</string>
@@ -472,17 +472,17 @@
     <string name="toast_camera_id_set">摄像头%1$d设置 下一个ACC周期</string>
     <string name="toast_clearing_camera_config">清除摄像头配置...</string>
     <string name="toast_restarting_camera_daemon">正在重启摄像头后台守护进程...</string>
-    <string name="toast_camera_daemon_restarting">摄像头子重新启动</string>
+    <string name="toast_camera_daemon_restarting">摄像头守护进程正在重新探测并启动…</string>
     <string name="toast_camera_restart_failed">配置已清除,但 daemon 重启失败.请手动重启.</string>
     <string name="toast_camera_settings_saved_restarting">预览 预览 预览 预览 预览</string>
-    <string name="toast_camera_settings_restart_failed">摄像头设置被保存了,但 daemon 重启失败了.请手动重启.</string>
+    <string name="toast_camera_settings_restart_failed">摄像头设置已保存，但守护进程重启失败，请稍后手动重启。</string>
     <string name="toast_failed_with_message_x">失败:%1$s</string>
     <string name="toast_soh_reset_success">SOH估计重置 将从下一个数据中重新计算</string>
     <string name="toast_soh_reset_failed_no_daemon">重置失败 魔鬼不响应和文件无法编写</string>
     <string name="toast_soh_reset_failed_with_message">重置失败:%1$s</string>
     <string name="toast_select_at_least_one_category">选择至少一个类别</string>
     <string name="toast_reset_failed_with_error">设置失败:%1$s</string>
-    <string name="toast_traffic_monitor_changing">交通监视器%1$s...</string>
+    <string name="toast_traffic_monitor_changing">正在设置路况监测服务为 %1$s…</string>
     <string name="toast_traffic_monitor_persist_failed">已应用设置，但偏好未能持久化保存 — 固件升级后可能丢失。</string>
     <string name="dialog_close">关闭</string>
     <string name="dialog_reset">重置</string>
@@ -492,7 +492,7 @@
     <string name="dialog_disable">停用</string>
     <string name="dialog_keep_enabled">让你能做到</string>
     <string name="dialog_keep_disabled">保持残疾</string>
-    <string name="dialog_regenerate">复兴</string>
+    <string name="dialog_regenerate">重新生成</string>
     <string name="dialog_reset_selected">选择重置</string>
     <string name="dialog_reset_soh_title">设置SOH估计?</string>
     <string name="dialog_reset_soh_message">这将清除所有SOH数据并从零开始强迫重新估计.\n\n如果:\n•电池被更换\n•SOH读取似乎不正确\n•您想重新校准\n\n系统将从下一个可用的数据源 (OEM,充电校准或即时读取) 中重新播放.</string>
@@ -503,16 +503,27 @@
     <string name="dialog_reset_complete_title">完成重新设置</string>
     <string name="dialog_traffic_cannot_check_title">无法检查状态</string>
     <string name="dialog_traffic_cannot_check_message">应用程序需要ADB访问来管理系统包.请确保:\n\n• 在开发者选项中已启用USB调试\n•已接受ADB授权提示\n\n状态将自动更新,一旦连接.</string>
-    <string name="dialog_traffic_disable_title">关闭BYD交通监视器?</string>
-    <string name="dialog_traffic_disable_message">BYD交通监测器 (com.byd.trafficmonitor) 是一个内置系统应用程序,持续监测后台道路交通状况.\n\n️ 为什么禁用它?\n\n• 消耗移动数据 (即使停车时)\n• 使用CPU和电池在后台\n• 不需要使用单独的导航应用程序\n• 可以干扰仪表摄像头的网络使用\n\n 这可以安全禁用 它只影响地图上的内置交通覆盖.您的导航,Bluetooth和所有其他汽车功能都不受影响.\n\n 禁用后需要硬重启 (长按中控台滚轮 5 秒).</string>
+    <string name="dialog_traffic_disable_title">停用比亚迪路况监测器？</string>
+    <string name="dialog_traffic_disable_message">比亚迪原厂路况监测服务 (com.byd.trafficmonitor) 是车机内置的系统应用，在后台持续监测道路交通状况。
+
+为何建议停用？
+
+• 持续消耗车联网流量（即使在锁车停放状态下）
+• 持续占用车机后台 CPU 算力与 12V 小蓄电池电量
+• 使用高德/百度等主流导航应用时无需此服务
+• 会阻断并干扰 OverDrive 行车记录仪的远程网络访问
+
+此项操作完全安全可逆 — 仅停用原厂简易地图自带的路况图层，车辆的导航、蓝牙及所有行车功能均不受任何影响。
+
+停用后需强制重启车机（长按中控台滚轮 5 秒）。</string>
     <string name="dialog_traffic_enable_title">再启用BYD交通监测器?</string>
     <string name="dialog_traffic_enable_message">目前,BYD 交通监测器已被禁用.\n\n重新启用将恢复导航地图内置的交通覆盖.请注意,它将在背景中运行并消耗移动数据.\n\n启动后需要硬式重新启动 (保持中心控制台按5秒).</string>
-    <string name="dialog_traffic_status_title">交通监视器%1$s</string>
+    <string name="dialog_traffic_status_title">路况监测服务已 %1$s</string>
     <string name="dialog_traffic_reboot_message">设置已应用。
 
 请立即执行车机硬重启：
 按住中控台下方的音量滚轮/电源键 5 秒以上直至车机重启。</string>
-    <string name="traffic_monitor_loading">交通监视器:检查...</string>
+    <string name="traffic_monitor_loading">路况监测服务：正在检测…</string>
     <string name="traffic_monitor_tap_to_check">交通监测器 (点击查看)</string>
     <string name="reset_label_trips">行程</string>
     <string name="reset_label_soc_history">SoC + 12V 历史记录</string>
@@ -524,7 +535,7 @@
     <string name="reset_label_proximity">近距离记录</string>
     <string name="reset_label_trip_files">行程遥测文件</string>
     <string name="toast_access_code_copied">复制访问代码</string>
-    <string name="dialog_regenerate_token_title">复兴标志</string>
+    <string name="dialog_regenerate_token_title">重新生成访问 Token</string>
     <string name="dialog_regenerate_token_message">重新生成访问令牌将使当前令牌失效，所有活跃连接将被强制登出。是否继续？</string>
     <string name="toast_token_regenerated_logged_out">已生成新令牌，所有活跃连接已强制登出。</string>
     <string name="toast_token_regenerated_restart">代蒙可能需要重新启动才能应用.</string>
@@ -634,11 +645,11 @@
     <string name="setup_version_banner">已更新到 %1$s — 重新确认自动启动，每次安装时都会有BYD wipes</string>
     <string name="setup_overlay_already_granted">已授予</string>
     <string name="setup_tips_header">提示 &amp; 解决问题</string>
-    <string name="setup_traffic_title">禁用BYD交通监视器</string>
+    <string name="setup_traffic_title">停用比亚迪路况监测服务</string>
     <string name="setup_traffic_body">BYD 交通监测器阻止第三方应用访问互联网. 禁用它使OverDrive和其他安装的应用程序实际上使用网络. 之后需要硬式重新启动.</string>
     <string name="setup_traffic_button">开放的交通监测器</string>
     <string name="setup_camera_fix_title">摄像头画面黑屏或显示异常？</string>
-    <string name="setup_camera_fix_body">摄像头探测器,设置摄像头ID为0,点击保存,然后重新启动摄像头模特.如果传输仍然错误,请使用摄像头ID重复1.</string>
+    <string name="setup_camera_fix_body">进入摄像头探测，将摄像头 ID 设为 0 并点击保存，然后重启摄像头守护进程。若画面仍异常，请尝试设为 ID 1。下方映射列表无需改动。</string>
     <string name="camera_current_manual">当前: 摄像头 %1$d (手动)</string>
     <string name="camera_current_auto_label">当前: 自动检测</string>
     <string name="soh_estimation_active">估算已激活</string>
@@ -787,7 +798,7 @@
     <string name="settings_about_support_section">由像你这样的人来推动</string>
     <string name="settings_about_support_share_title">告诉另一位车主</string>
     <string name="settings_about_support_share_value">每个共享的链接都能帮助另一个BYD的所有者发现Overdrive.</string>
-    <string name="settings_about_support_share_message">查看 Overdrive — 面向 BYD 的开源监控和仪表摄像头: https://overdrive-5lc.pages.dev/</string>
+    <string name="settings_about_support_share_message">推荐体验 OverDrive — 专为比亚迪车机打造的开源哨兵与行车记录仪系统：https://overdrive-5lc.pages.dev/</string>
     <string name="settings_about_support_share_chooser">分享 Overdrive</string>
     <string name="settings_about_open_link_failed">无法打开链接.</string>
     <string name="settings_about_open_link_copied">没有浏览器. URL复制: %1$s</string>
@@ -858,11 +869,11 @@
     <string name="recording_distance_far">远距离</string>
     <string name="cd_recording_more_actions">更多录像操作</string>
     <string name="diagnostics_section_adb_console">电脑控制台</string>
-    <string name="diagnostics_section_traffic">交通监视器</string>
+    <string name="diagnostics_section_traffic">路况监测服务</string>
     <string name="diagnostics_section_camera_probe">摄像头探测器</string>
     <string name="diagnostics_section_battery">电池健康</string>
     <string name="diagnostics_hero_title">系统诊断</string>
-    <string name="diagnostics_hero_subtitle">现场健康,记录和探测器.</string>
+    <string name="diagnostics_hero_subtitle">设备健康状态、实时日志与硬件探测。</string>
     <string name="diagnostics_health_clear">一切都清了.</string>
     <string name="diagnostics_health_section">卫生</string>
     <string name="diagnostics_health_network">网络</string>
@@ -994,7 +1005,7 @@
     <string name="settings_security_title">安全</string>
     <string name="settings_security_subtitle">锁定 OverDrive 应用，防止乘客和代客泊车人员在没有您的 PIN 码的情况下打开它。</string>
     <string name="settings_security_stance_title">仅锁定界面</string>
-    <string name="settings_security_stance_body">监视、录制、威慑、警报和后台服务在锁定应用程序时继续运行。PIN码仅锁定 OverDrive 界面，别无其他。</string>
+    <string name="settings_security_stance_body">在界面锁定时，哨兵安防、录像、威慑、告警及后台服务仍会持续运行。PIN 码仅用于保护 OverDrive 设置界面。</string>
     <string name="settings_security_overline_lock">应用锁</string>
     <string name="settings_security_overline_recovery">如果您忘记了您的 PIN</string>
     <string name="settings_security_toggle_title">需要 PIN</string>
