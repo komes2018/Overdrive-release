@@ -56,12 +56,12 @@
     <string name="overlay_mode_continuous_label" translatable="false">常录</string>
     <string name="overlay_mode_drive_label" translatable="false">行车</string>
     <string name="overlay_mode_proximity_label" translatable="false">雷达</string>
-    <string name="overlay_mode_off_cd">停止录音</string>
-    <string name="overlay_mode_continuous_cd">连续录音</string>
+    <string name="overlay_mode_off_cd">停止录制</string>
+    <string name="overlay_mode_continuous_cd">连续录像</string>
     <string name="overlay_mode_drive_cd">驱动器模式录制</string>
-    <string name="overlay_mode_proximity_cd">距离警卫录音</string>
+    <string name="overlay_mode_proximity_cd">近距离防御录像</string>
     <string name="log_entry_default_timestamp">时间:12:34:56</string>
-    <string name="log_entry_default_tag">现在,我们要做什么呢?</string>
+    <string name="log_entry_default_tag">[TAG]</string>
     <string name="log_entry_default_message">在此记录消息</string>
     <string name="daemon_card_default_name">守护进程名称</string>
     <string name="daemon_card_default_status">状态信息</string>
@@ -231,7 +231,7 @@
     <string name="onboarding_vehicle_body">选择您的模型，我们填充了 kWh，或者输入自己(15-120)。 这使得续航里程和充电估算准确。您可以跳过并稍后设置。</string>
     <string name="onboarding_vehicle_primary">设置电池</string>
     <string name="onboarding_dash_tiles_title">你的鸡蛋一眼！</string>
-    <string name="onboarding_dash_tiles_body">这些卡片是按钮 — 点击打开实时摄像头、录音、服务或您的车辆。</string>
+    <string name="onboarding_dash_tiles_body">这些卡片是快捷入口 — 点击可打开实时摄像头、录像回放、服务管理或车辆控制。</string>
     <string name="onboarding_dash_chips_title">这些仅显示状态</string>
     <string name="onboarding_dash_chips_body">顶部显示录制、服务和您的远程链接。他们自己更新了 — — 他们不是按钮。</string>
     <string name="onboarding_dash_chips_body_land">您的实时状态 — 录制、 服务和远程链接 — 在这里显示。它是自己的更新。</string>
@@ -248,7 +248,7 @@
     <string name="onboarding_expert_menu_start">开始游览</string>
     <string name="onboarding_expert_vehicle_title">车辆资料</string>
     <string name="onboarding_expert_vehicle_body">点击车辆卡片来设置电池大小和型号——它能使精确的范围和健康估计。</string>
-    <string name="onboarding_expert_recordings_title">您的录音</string>
+    <string name="onboarding_expert_recordings_title">行车录像</string>
     <string name="onboarding_expert_recordings_body">使用此开关在行车记录仪（连续录像 + 近距防护片段）与驻车哨兵（停放期间传感器告警事件）之间切换 — 两者分别归档。点击任意片段即可播放。</string>
     <string name="onboarding_expert_live_title">实时摄像机</string>
     <string name="onboarding_expert_live_body">从此处开启全景实时监控。适合在驾车出发前或停在车旁时快速查看车身周边画面。</string>
@@ -275,7 +275,7 @@
     <string name="onboarding_expert_security_title">使用 PIN 码锁定</string>
     <string name="onboarding_expert_security_body">设置保护 PIN 码以防止共用车人误操作设置。即使应用处于锁定状态，哨兵安防与后台录像仍会照常运行。若遗忘 PIN 码，只能通过电脑连接 USB 调试清除。</string>
     <string name="onboarding_expert_reset_title">重置数据 - 永久性数据</string>
-    <string name="onboarding_expert_reset_body">这会擦除录音、事件和设置，不能撤消。如果你出售了这辆车——不是正常使用的一部分。</string>
+    <string name="onboarding_expert_reset_body">这将清除所有录像、事件日志和设置，无法撤销。仅在转让出售车辆时使用。</string>
     <string name="onboarding_expert_done_title">那是游览</string>
     <string name="onboarding_expert_done_body">您已经看到了更深的设置。随时从帮助按钮重新打开本指南。</string>
     <string name="cd_close">关闭</string>
@@ -328,18 +328,18 @@
     <string name="recording_lib_chip_alert">警报</string>
     <string name="recording_lib_chip_critical">关键</string>
     <string name="recording_lib_selected_count_zero">0 选择</string>
-    <string name="recording_lib_no_recordings">没有录音</string>
-    <string name="recording_lib_filter_button">过器</string>
-    <string name="recording_lib_filter_button_active">过器 · %1$d</string>
-    <string name="recording_lib_filter_sheet_title">过记录</string>
+    <string name="recording_lib_no_recordings">暂无录像</string>
+    <string name="recording_lib_filter_button">筛选</string>
+    <string name="recording_lib_filter_button_active">筛选 · %1$d</string>
+    <string name="recording_lib_filter_sheet_title">筛选录像</string>
     <string name="recording_lib_filter_apply">应用</string>
     <string name="recording_lib_filter_reset">重置</string>
-    <string name="recording_lib_filter_section_what">什么?</string>
-    <string name="recording_lib_filter_section_severity">严重性</string>
+    <string name="recording_lib_filter_section_what">目标类型</string>
+    <string name="recording_lib_filter_section_severity">告警级别</string>
     <string name="recording_lib_filter_section_type">类型</string>
     <string name="recording_lib_filter_section_place">地方</string>
     <string name="recording_lib_filter_section_storage">存储</string>
-    <string name="recording_lib_storage_filter_internal">内部设置</string>
+    <string name="recording_lib_storage_filter_internal">内部存储</string>
     <string name="recording_lib_storage_filter_sd">SD 卡</string>
     <string name="recording_lib_storage_filter_usb">USB 存储</string>
     <string name="recording_lib_place_search_hint">搜索地点/事件…</string>
@@ -347,9 +347,9 @@
     <string name="recording_lib_chip_type_proximity">邻近度</string>
     <string name="recording_lib_date_today">今天</string>
     <string name="recording_lib_date_yesterday">昨天</string>
-    <string name="recording_lib_clip_count">片%1$d</string>
-    <string name="recording_lib_clip_count_one">%1$d剪辑</string>
-    <string name="recording_lib_pick_date">选择一个约会</string>
+    <string name="recording_lib_clip_count">%1$d 条片段</string>
+    <string name="recording_lib_clip_count_one">%1$d 条片段</string>
+    <string name="recording_lib_pick_date">选择日期</string>
     <string name="recording_lib_date_all_days">所有日期</string>
     <string name="cd_clear_date_filter">显示所有日子</string>
     <string name="recording_lib_section_morning">早晨</string>
@@ -358,15 +358,15 @@
     <string name="recording_lib_section_night">晚上</string>
     <string name="cd_previous_day">前一天</string>
     <string name="cd_next_day">第二天</string>
-    <string name="cd_open_filters">开放过器</string>
-    <string name="cd_clear_filter">清晰的过器</string>
+    <string name="cd_open_filters">打开筛选器</string>
+    <string name="cd_clear_filter">清除筛选条件</string>
     <string name="recording_lib_empty_title">没有录制匹配</string>
     <string name="recording_lib_empty_body">尝试调整您的日期范围或芯片过滤器。</string>
     <string name="recording_lib_empty_clear_filters">清除过滤器</string>
     <string name="recording_lib_empty_disk_title">还没有记录</string>
     <string name="recording_lib_empty_disk_body">一旦行车记录仪或哨兵监控录制并落盘生成视频，视频片段将立即在此展示。</string>
     <string name="recording_lib_building_index_title">建筑库索引</string>
-    <string name="recording_lib_building_index_body">守护进程扫描您的录音。</string>
+    <string name="recording_lib_building_index_body">守护进程正在扫描录像文件，请稍候。</string>
     <string name="recording_lib_building_index_progress">已索引 %1$d 的 %2$d 片段…</string>
     <string name="recording_lib_index_down_title">录像数据库索引不可用</string>
     <string name="recording_lib_index_down_body">您的视频文件安全保存在磁盘中，但录像索引服务暂时离线。系统正在自动重试连接…</string>
@@ -378,7 +378,7 @@
     <string name="recording_lib_storage_sd">SD</string>
     <string name="recording_lib_storage_usb">USB 存储</string>
     <string name="recording_lib_storage_internal">内置</string>
-    <string name="toast_share_recordings">正在分享 %1$d 录音</string>
+    <string name="toast_share_recordings">正在分享 %1$d 个录像</string>
     <string name="toast_share_failed">分享失败</string>
     <string name="player_title_recording">录制</string>
     <string name="player_time_zero">时间:</string>
@@ -464,7 +464,7 @@
     <string name="community_discord_url" translatable="false">https://discord.gg/PZutk9fg4h</string>
     <string name="community_github_issues_url" translatable="false">https://github.com/komes2018/Overdrive-release/issues</string>
     <string name="community_whatsapp_url" translatable="false">https://chat.whatsapp.com/HChmriCWgr9KwAtE6OEkiM</string>
-    <string name="toast_storage_permission_required">录音所需的存储许可</string>
+    <string name="toast_storage_permission_required">保存录像需要存储权限</string>
     <string name="toast_url_copied_short">已复制了URL!</string>
     <string name="toast_camera_set_to_auto">摄像头设置为自动</string>
     <string name="toast_failed_to_save_short">无法保存</string>
@@ -478,7 +478,7 @@
     <string name="toast_camera_settings_restart_failed">摄像头设置已保存，但守护进程重启失败，请稍后手动重启。</string>
     <string name="toast_failed_with_message_x">失败:%1$s</string>
     <string name="toast_soh_reset_success">SOH估计重置 将从下一个数据中重新计算</string>
-    <string name="toast_soh_reset_failed_no_daemon">重置失败 魔鬼不响应和文件无法编写</string>
+    <string name="toast_soh_reset_failed_no_daemon">重置失败 — 守护进程未响应且文件不可写</string>
     <string name="toast_soh_reset_failed_with_message">重置失败:%1$s</string>
     <string name="toast_select_at_least_one_category">选择至少一个类别</string>
     <string name="toast_reset_failed_with_error">设置失败:%1$s</string>
@@ -636,7 +636,7 @@
     <string name="placeholder_dash">—</string>
     <string name="errors_network">网路错误</string>
     <string name="toast_cannot_play_video">无法播放视频:%1$s</string>
-    <string name="dialog_delete_recording_title">删除录音</string>
+    <string name="dialog_delete_recording_title">删除录像</string>
     <string name="dialog_delete_recording_message">删除%1$s?</string>
     <string name="toast_recording_deleted">删除记录</string>
     <string name="toast_recording_delete_failed">无法删除记录</string>
@@ -696,13 +696,13 @@
     <string name="settings_section_appearance">外观</string>
     <string name="settings_section_recording">录制</string>
     <string name="settings_section_surveillance">监控</string>
-    <string name="settings_section_daemons">魔鬼</string>
+    <string name="settings_section_daemons">后台守护进程</string>
     <string name="settings_section_privacy">隐私与数据</string>
     <string name="settings_section_overlay">状态覆盖</string>
     <string name="settings_section_security">安全</string>
     <string name="settings_overlay_subtitle">选择漂浮状态药物的哪些部分保持可见.</string>
     <string name="settings_overlay_camera_title">摄像头指标</string>
-    <string name="settings_overlay_camera_subtitle">在录音活动期间显示REC/ PROX标志.</string>
+    <string name="settings_overlay_camera_subtitle">录像进行中在屏幕角落显示 REC / PROX 状态指示。</string>
     <string name="settings_overlay_trip_title">行程指示器</string>
     <string name="settings_overlay_trip_subtitle">在行程记录与监测运行时，在屏幕上显示行程悬浮小胶囊。</string>
     <string name="settings_overlay_replay_title">即时回放悬浮窗</string>
@@ -748,7 +748,7 @@
     <string name="settings_subrail_overline">设置</string>
     <string name="cd_settings_subrail">设置子轨道</string>
     <string name="settings_privacy_title">隐私与数据</string>
-    <string name="settings_privacy_body">恢复清除录音索引,缓存凭证,魔鬼状态和设备上偏好.</string>
+    <string name="settings_privacy_body">重置将清除录像索引、缓存凭证、守护进程状态及本机偏好设置，此操作无法撤销。</string>
     <string name="settings_about_title">关于OverDrive</string>
     <string name="settings_about_version_label">版本</string>
     <string name="settings_about_package_label">建设</string>
@@ -844,7 +844,7 @@
     <string name="recordings_segment_surveillance_count">哨兵监控 · %d</string>
     <string name="recordings_segment_all_count">全部 · %d</string>
     <string name="recordings_summary_pending">正在统计...</string>
-    <string name="recordings_preview_placeholder_title">选择录音</string>
+    <string name="recordings_preview_placeholder_title">选择录像</string>
     <string name="recordings_preview_placeholder_body">在左边点击任何东西来播放.</string>
     <string name="recording_preview_detected">已识别目标</string>
     <string name="recording_preview_no_detection">未识别到目标</string>
@@ -916,7 +916,7 @@
     <string name="dashboard_subtitle_all_systems">所有系统在线</string>
     <string name="dashboard_subtitle_some_offline">在线提供%1$d的%2$d服务</string>
     <string name="dashboard_subtitle_no_tunnel">离线远程访问</string>
-    <string name="dashboard_metric_recordings">今天的录音</string>
+    <string name="dashboard_metric_recordings">今日录像</string>
     <string name="dashboard_metric_storage">使用的存储</string>
     <string name="dashboard_metric_tunnel">远程访问</string>
     <string name="dashboard_metric_services">背景服务</string>
@@ -958,7 +958,7 @@
     <string name="dashboard_action_vehicle_control">车辆控制</string>
     <string name="settings_hero_title">设置</string>
     <string name="settings_hero_overline">过度驱动</string>
-    <string name="settings_hero_subtitle">调整外观,录音,监控和设备上的数据.</string>
+    <string name="settings_hero_subtitle">调整外观、录像、哨兵监控与本机存储设置。</string>
     <string name="settings_overline_preferences">预见</string>
     <string name="settings_overline_about_data">关于 &amp; DATA</string>
     <string name="settings_quick_theme_label">主题</string>
@@ -968,7 +968,7 @@
     <string name="settings_section_daemons_subtitle">Cloudflared、Zrok、Telegram、MQTT 运行程序。</string>
     <string name="settings_about_row_title">关于OverDrive</string>
     <string name="settings_about_row_subtitle">版本,许可证,支持开发.</string>
-    <string name="settings_reset_row_subtitle">清晰的录音,事件,或所有隐藏.</string>
+    <string name="settings_reset_row_subtitle">清空录像、事件日志或全部缓存。</string>
     <string name="settings_footer_format">OverDrive %1$s · %2$s</string>
     <string name="settings_appearance_subtitle">的主题,语言和视觉偏好.</string>
     <string name="settings_theme_active_auto_caption">自动跟踪你的系统主题.</string>
@@ -980,10 +980,10 @@
     <string name="settings_privacy_stance_body">OverDrive 完全在车机主机上运行。除了你明确配置的隧道和集成之外，没有任何遥测数据会离开你的车辆。</string>
     <string name="settings_privacy_overline_storage">地方储存</string>
     <string name="settings_privacy_overline_reset">数据重新设置</string>
-    <string name="settings_privacy_storage_clips_label">磁盘上的剪辑</string>
+    <string name="settings_privacy_storage_clips_label">磁盘存储片段</string>
     <string name="settings_privacy_storage_size_label">总规模</string>
     <string name="settings_privacy_storage_unavailable">无法使用</string>
-    <string name="settings_privacy_storage_count_format">%1$d剪辑</string>
+    <string name="settings_privacy_storage_count_format">%1$d 条片段</string>
     <string name="settings_privacy_storage_count_format_plural">片%1$d</string>
     <string name="settings_privacy_reset_subtitle">选择要清理的数据类别：录像片段、安全事件、后台服务配置、缓存的车况遥测数据…</string>
     <string name="settings_privacy_overline_diagnostics">故障诊断</string>
@@ -1066,7 +1066,7 @@
     <string name="dashboard_insight_parked_drained">自从你停车以来,一直使用%1$s</string>
     <string name="dashboard_insight_last_alert">最后的监控警报:%1$s</string>
     <string name="dashboard_insight_last_charge">最后的电荷:%2$s中的%1$s</string>
-    <string name="dashboard_insight_storage_milestone">记录的%1$d剪辑 · 记录的%2$s</string>
+    <string name="dashboard_insight_storage_milestone">已录制 %1$d 条片段 · 累计 %2$s</string>
     <string name="dashboard_insight_kwh_format">%1$.1f kWh</string>
     <string name="dashboard_insight_percent_format">%1$.1f%%</string>
     <string name="dashboard_insight_hours_minutes">时间:%1$d小时%2$d分钟</string>
@@ -1146,18 +1146,18 @@
     <string name="roadsense_map_hazards_moderate">中度和严重度</string>
     <string name="roadsense_map_hazards_severe">仅严重的</string>
     <string name="roadsense_map_hazards_hidden">隐藏危险</string>
-    <string name="roadsense_map_poi_toggle">充电和燃料</string>
+    <string name="roadsense_map_poi_toggle">充电桩与加油站</string>
     <string name="roadsense_map_dimension_toggle">2D / 3D 建筑</string>
     <string name="roadsense_map_3d_on">3D 建筑已开启</string>
     <string name="roadsense_map_3d_off">3D 建筑已关闭</string>
-    <string name="roadsense_map_poi_loading">寻找充电站和燃料站…</string>
+    <string name="roadsense_map_poi_loading">正在搜索充电站与加油站…</string>
     <string name="roadsense_map_poi_none">附近未找到气象站</string>
     <string name="roadsense_map_poi_need_route">先选择一个目标</string>
     <string name="roadsense_map_stop_added">停止添加</string>
     <string name="roadsense_map_remove_stop_action">移除停止</string>
     <string name="roadsense_map_poi_navigate">导航到这里</string>
     <string name="roadsense_map_poi_kind_charging">充电站</string>
-    <string name="roadsense_map_poi_kind_fuel">燃料站</string>
+    <string name="roadsense_map_poi_kind_fuel">加油站</string>
     <string name="roadsense_map_poi_charging_generic">充电站</string>
     <string name="roadsense_map_poi_fuel_generic">加油站</string>
     <string name="roadsense_map_route_switched">已切换路线</string>
