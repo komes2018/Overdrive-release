@@ -45,7 +45,7 @@ jobs:
           mkdir -p release-assets
           APK_FILE=$(find app/build/outputs/apk -name "*.apk" | head -1)
           echo "Found built APK: $APK_FILE"
-          cp "$APK_FILE" release-assets/Overdrive-v48.18-cn-sec.apk
+          cp "$APK_FILE" release-assets/Overdrive-v48.19-cn-sec.apk
           ls -lh release-assets/
 
       - name: Upload APK Artifact
@@ -59,22 +59,35 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: github.ref == 'refs/heads/main'
         with:
-          tag_name: v48.18-cn-sec
-          name: OverDrive v48.18 - 中文深度汉化与安全加固版
+          tag_name: v48.19-cn-sec
+          name: OverDrive v48.19 - 中文深度汉化与安全加固版
           body: |
-            ## OverDrive v48.18 中文深度精校与安全加固版
+            ## OverDrive v48.19 中文深度精校与安全加固版
 
             ### 🚀 本次更新亮点
-            - **全量深度精校车载中文本地化**：
-              - 补齐全部 304 项未翻译英文字符，彻底清除 281 个残存繁体字型（全库 0 繁体残留）。
-              - 彻底消灭上百处恶性生硬机翻：
-                - 车控与自动化修正：“还原尸”➔ 恢复仪表盘原始显示；“真菌/引导机/燃料盖”➔ 前机盖/后备箱/油箱盖；“自动耳光”➔ 自动大灯；“较近”➔ 关闭；“开火/点火”➔ 触发；“空火焰”➔ 双闪；“加热导轮”➔ 方向盘加热；“冰箱/沙桶/粉末/夹/圆”➔ 规范数学函数；ADAS 防护术语全面纠正。
-                - 行程与能耗修正：“旅行”➔ 行程；“马克斯km/h”➔ 最高车速；“末尾多项符”➔ 结束总里程；“伊莱夫/埃尔夫”➔ 累计爬升/下降；“石油使用”➔ 消耗燃油。
-                - 哨兵与仪表修正：“武装人员”➔ 已布防；“灰色相机”➔ 行车记录仪；“仪器集群/驱动程序集群”➔ 液晶仪表盘；“信息屏幕”➔ 中控大屏。
-            - **随身 Wi-Fi 熄火供电原生支持**：
-              - 哨兵监控设置中已标注原生支持的“熄火保持 USB 供电”选项，无需改动车辆线路即可实现随身 Wi-Fi 全时供网。
-            - **底层安全加固**：
-              - 彻底拆除原版 Oracle 代理中转与明文 TCP 远程 Shell 风险后门。
-          files: release-assets/Overdrive-v48.18-cn-sec.apk
+
+            - **企业微信群机器人推送（国内直连，无需代理）**：
+              - 全新 `WeComNotifier` + `WeComSink`，完整覆盖车→手机通知场景
+              - 哨兵检测到人/车/动物：实时 Markdown 告警 + 摄像头方向 + 置信度
+              - 录像完成通知 + Hero 截图 Base64 直接推送到群（≤2MB）
+              - 隧道 URL 更新时自动推送可点击链接
+              - 充电故障、胎压告警、低电量、进程崩溃等 WARN/CRITICAL 事件全覆盖
+              - 配置极简：`echo "webhook_url=你的企微机器人地址" > /data/local/tmp/wecom_config.properties`
+              - 热更新：修改配置文件即刻生效，无需重新编译
+
+            - **仪表盘汉化深度精校**：
+              - "置信度" → "预估区间"（续航预估区间显示）
+              - "功率: 开/关" → "整车电源: 开/关"
+              - "039 穷人" → "0–39 较差"（驾驶评分区间）
+              - "放心." / "热情" → "平稳" / "激烈"（驾驶风格）
+              - "希利" → "丘陵起伏"（路段坡度特征）
+              - 续航对比栏 "车辆" → "原车表显"
+
+            ### 📝 配置说明（企微推送）
+            ```bash
+            adb shell "echo 'webhook_url=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=你的KEY' \
+                > /data/local/tmp/wecom_config.properties"
+            ```
+          files: release-assets/Overdrive-v48.19-cn-sec.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
