@@ -8283,7 +8283,7 @@ public class SurveillanceEngineGpu {
         }
         // 企微并行推送 Hero 截图（国内直连，无需代理）
         try {
-            String label = threat != null ? com.overdrive.app.surveillance.Actor.groupLabel(threat.classGroup) : detectionLabel;
+            String label = threat != null ? com.overdrive.app.surveillance.Actor.groupLabel(threat.classGroup) : null;
             com.overdrive.app.wecom.WeComNotifier.notifyMotionFinalized(
                     heroPhotoPath,
                     videoFilename,
