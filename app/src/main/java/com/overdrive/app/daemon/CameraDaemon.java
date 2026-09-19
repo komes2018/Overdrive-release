@@ -9490,6 +9490,11 @@ public class CameraDaemon {
         // directly via TelegramNotifier) so there is no double-send.
         com.overdrive.app.notifications.NotificationBus.get()
                 .subscribe(new com.overdrive.app.notifications.sinks.TelegramSink());
+        // 企业微信群机器人 Sink：与 TelegramSink 相同过滤策略，国内直连无需代理。
+        // 配置文件: /data/local/tmp/wecom_config.properties (webhook_url=...)
+        // 未配置时自动跳过（不影响其他通知路径）。
+        com.overdrive.app.notifications.NotificationBus.get()
+                .subscribe(new com.overdrive.app.notifications.sinks.WeComSink());
 
         // All sinks are now wired. Seal the bus: flush the buffered
         // boot-window events to every subscribed sink (once each) and switch to

@@ -269,6 +269,8 @@ class AdbDaemonLauncher(private val context: Context) {
                 if (url.isNotEmpty() && url != lastNotifiedTunnelUrl) {
                     lastNotifiedTunnelUrl = url
                     com.overdrive.app.telegram.TelegramNotifier.notifyTunnelUrl(url, true)
+                    // 企微并行推送（国内直连）
+                    com.overdrive.app.wecom.WeComNotifier.notifyTunnelUrl(url, true)
                 }
                 callback.onTunnelUrl(url)
             }

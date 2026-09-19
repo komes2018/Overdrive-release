@@ -8032,6 +8032,16 @@ public class SurveillanceEngineGpu {
         } catch (Throwable t) {
             logger.debug("Telegram notify failed: " + t.getMessage());
         }
+        // 企微并行推送（国内直连，无需代理）
+        try {
+            com.overdrive.app.wecom.WeComNotifier.notifyMotion(
+                    detectionLabel,
+                    bestConf > 0f ? bestConf : 1.0f,
+                    camHint,
+                    peakSev != null ? peakSev.name() : null);
+        } catch (Throwable t) {
+            logger.debug("WeComNotifier motion notify failed: " + t.getMessage());
+        }
     }
 
     /**
@@ -8270,6 +8280,17 @@ public class SurveillanceEngineGpu {
                     camHint);
         } catch (Throwable t) {
             logger.debug("Telegram finalized notify failed: " + t.getMessage());
+        }
+        // 企微并行推送 Hero 截图（国内直连，无需代理）
+        try {
+            String label = threat != null ? com.overdrive.app.surveillance.Actor.groupLabel(threat.classGroup) : detectionLabel;
+            com.overdrive.app.wecom.WeComNotifier.notifyMotionFinalized(
+                    heroPhotoPath,
+                    videoFilename,
+                    label,
+                    camHint);
+        } catch (Throwable t) {
+            logger.debug("WeComNotifier finalized notify failed: " + t.getMessage());
         }
 
         // Surveillance video upload. We're past the shouldTelegram() tier gate

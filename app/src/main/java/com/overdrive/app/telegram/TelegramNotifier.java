@@ -389,6 +389,8 @@ public class TelegramNotifier {
                 // daemon is down (ACC ON). Replay re-applies the criticalAlerts
                 // + owner gate on the daemon side.
                 sendIpc(cmd, /*spoolOnDaemonDown=*/true);
+                // 企微并行推送（国内直连，无需代理，不依赖 Telegram daemon 是否存活）
+                com.overdrive.app.wecom.WeComNotifier.notifyCritical(type.name(), details);
             } catch (Exception e) {
                 Log.e(TAG, "notifyCritical IPC error", e);
             }
