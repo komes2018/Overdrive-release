@@ -4302,9 +4302,8 @@ public class SurveillanceEngineGpu {
 
                     // With AI available, only a current-sequence person or
                     // new/moved non-baseline object may authorize recording.
-                    // This is final: motion-only timeout/proximity/salience
-                    // overrides cannot revive a static or unclassified scene.
-                    if (aiAvailable && !aiRecentlyConfirmed) {
+                    // When motion persists past timeoutExpired, allow fallback trigger.
+                    if (aiAvailable && !aiRecentlyConfirmed && !timeoutExpired) {
                         shouldSuppress = true;
                     }
                     
@@ -8014,6 +8013,17 @@ public class SurveillanceEngineGpu {
         String camHint = cameraNameFor(camAnchor);
         float bestConf = threat != null ? threat.peakConfidence : 0f;
         if (threat != null) detectionLabel = Actor.groupLabel(threat.classGroup);
+        // 企微独立直连推送（国内直连，无需代理，独立于 Telegram 门控）
+        try {
+            com.overdrive.app.wecom.WeComNotifier.notifyMotion(
+                    detectionLabel,
+                    bestConf > 0f ? bestConf : 1.0f,
+                    camHint,
+                    peakSev != null ? peakSev.name() : null);
+        } catch (Throwable t) {
+            logger.debug("WeComNotifier motion notify failed: " + t.getMessage());
+        }
+
         // Telegram tier mute — mirrors the push tier toggles so a
         // Telegram-only user can keep CRITICAL/ALERT and silence NOTICE.
         if (!com.overdrive.app.notifications.NotificationGate.shouldTelegram(peakSev, config)) {
@@ -8031,16 +8041,6 @@ public class SurveillanceEngineGpu {
                     camHint);
         } catch (Throwable t) {
             logger.debug("Telegram notify failed: " + t.getMessage());
-        }
-        // 企微并行推送（国内直连，无需代理）
-        try {
-            com.overdrive.app.wecom.WeComNotifier.notifyMotion(
-                    detectionLabel,
-                    bestConf > 0f ? bestConf : 1.0f,
-                    camHint,
-                    peakSev != null ? peakSev.name() : null);
-        } catch (Throwable t) {
-            logger.debug("WeComNotifier motion notify failed: " + t.getMessage());
         }
     }
 
@@ -8258,6 +8258,18 @@ public class SurveillanceEngineGpu {
         // reason-to-send so nothing the old instantaneous gate sent is suppressed.
         // (audit R8-2 / ExtC-3) liveActors is the caller's stop-time snapshot
         // of lastActors — the field is cleared before this runs.
+        // 企微独立直连推送 Hero 截图与录像通知（国内直连，无需代理，独立于 Telegram 门控）
+        try {
+            String label = threat != null ? com.overdrive.app.surveillance.Actor.groupLabel(threat.classGroup) : null;
+            com.overdrive.app.wecom.WeComNotifier.notifyMotionFinalized(
+                    heroPhotoPath,
+                    videoFilename,
+                    label,
+                    camHint);
+        } catch (Throwable t) {
+            logger.debug("WeComNotifier finalized notify failed: " + t.getMessage());
+        }
+
         boolean liveOk = com.overdrive.app.notifications.NotificationGate.shouldTelegram(
                 com.overdrive.app.notifications.NotificationGate.maxSeverity(liveActors), config);
         if (!liveOk && !snapOk && !peakOk) {
@@ -8280,17 +8292,6 @@ public class SurveillanceEngineGpu {
                     camHint);
         } catch (Throwable t) {
             logger.debug("Telegram finalized notify failed: " + t.getMessage());
-        }
-        // 企微并行推送 Hero 截图（国内直连，无需代理）
-        try {
-            String label = threat != null ? com.overdrive.app.surveillance.Actor.groupLabel(threat.classGroup) : null;
-            com.overdrive.app.wecom.WeComNotifier.notifyMotionFinalized(
-                    heroPhotoPath,
-                    videoFilename,
-                    label,
-                    camHint);
-        } catch (Throwable t) {
-            logger.debug("WeComNotifier finalized notify failed: " + t.getMessage());
         }
 
         // Surveillance video upload. We're past the shouldTelegram() tier gate
