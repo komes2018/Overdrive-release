@@ -74,185 +74,199 @@ public final class TelemetryFieldCatalog {
         final String TOTI = "total_increasing";
 
         // ---------- Core driving / energy ----------
-        add("soc",        "State of Charge", SENSOR, "battery",     MEAS, "%",    "mdi:battery",            false, 0.1);
+        add("soc",        "动力电池电量",     SENSOR, "battery",     MEAS, "%",    "mdi:battery",            false, 0.1);
         // "Motor Power", not "Power": this is drive-motor kW. The automation signal named
         // `power` is the IGNITION level (off/acc/on), published here as `power_level` —
         // two unrelated facts that both read as "power". See SignalMqttMap.
-        add("power",      "Motor Power",     SENSOR, "power",       MEAS, "kW",   "mdi:flash",              false, 0.1);
-        add("target_soc", "Target SOC",      SENSOR, "battery",     MEAS, "%",    "mdi:battery-sync",       false, 1);
-        add("charge_power","Charge Power",   SENSOR, "power",       MEAS, "kW",   "mdi:battery-charging",   false, 0.1);
-        add("speed",      "Speed",           SENSOR, "speed",       MEAS, "km/h", "mdi:speedometer",        false, 0.1);
-        add("lat",        "Latitude",        SENSOR, null,          MEAS, "°",    "mdi:latitude",           true,  0.00001);
-        add("lon",        "Longitude",       SENSOR, null,          MEAS, "°",    "mdi:longitude",          true,  0.00001);
-        add("elevation",  "Elevation",       SENSOR, "distance",    MEAS, "m",    "mdi:image-filter-hdr",   true,  1);
-        add("heading",    "Heading",         SENSOR, null,          MEAS, "°",    "mdi:compass",            true,  1);
-        add("gear",       "Gear",            SENSOR, "enum",        null, null,   "mdi:car-shift-pattern",  false, 0);
-        add("odometer",   "Odometer",        SENSOR, "distance",    TOTI, "km",   "mdi:counter",            false, 1);
+        add("power",      "电机功率",         SENSOR, "power",       MEAS, "kW",   "mdi:flash",              false, 0.1);
+        add("target_soc", "目标电量 (SOC)",   SENSOR, "battery",     MEAS, "%",    "mdi:battery-sync",       false, 1);
+        add("charge_power","充电功率",        SENSOR, "power",       MEAS, "kW",   "mdi:battery-charging",   false, 0.1);
+        add("speed",      "车速",             SENSOR, "speed",       MEAS, "km/h", "mdi:speedometer",        false, 0.1);
+        add("lat",        "纬度",             SENSOR, null,          MEAS, "°",    "mdi:latitude",           true,  0.00001);
+        add("lon",        "经度",             SENSOR, null,          MEAS, "°",    "mdi:longitude",          true,  0.00001);
+        add("elevation",  "海拔高度",         SENSOR, "distance",    MEAS, "m",    "mdi:image-filter-hdr",   true,  1);
+        add("heading",    "行驶航向",         SENSOR, null,          MEAS, "°",    "mdi:compass",            true,  1);
+        add("gear",       "当前挡位",         SENSOR, "enum",        null, null,   "mdi:car-shift-pattern",  false, 0);
+        add("odometer",   "总里程",           SENSOR, "distance",    TOTI, "km",   "mdi:counter",            false, 1);
 
         // ---------- Charging ----------
-        add("is_charging",          "Charging",            BINARY, "battery_charging", null, null, null,                 false, 0);
-        add("is_dcfc",              "DC Fast Charging",    BINARY, null,               null, null, "mdi:ev-station",     false, 0);
-        add("is_parked",            "Parked",              BINARY, null,               null, null, "mdi:car-brake-parking", false, 0);
-        add("charging_pct",         "Charging Progress",   SENSOR, "battery",          MEAS, "%",  "mdi:battery-charging", false, 1);
-        add("charging_eta_hours",   "Charging ETA (h)",    SENSOR, "duration",         null, "h",  "mdi:timer-sand",     false, 0);
-        add("charging_eta_minutes", "Charging ETA (min)",  SENSOR, "duration",         null, "min","mdi:timer-sand",     false, 0);
-        add("charging_capacity_kwh","Charging Capacity",   SENSOR, "energy",           TOTI, "kWh","mdi:battery-charging-high", false, 0.1);
-        add("charging_capacity_incomplete", "Charging Energy Incomplete", BINARY, null, null, null, "mdi:alert-circle-outline", true, 0);
-        add("charging_capacity_estimated",  "Charging Energy Estimated",  BINARY, null, null, null, "mdi:approximately-equal", true, 0);
-        add("charging_capacity_source",     "Charging Energy Source",     SENSOR, "enum", null, null, "mdi:source-branch", true, 0);
-        add("charging_v2l",         "V2L Active",          BINARY, null,               null, null, "mdi:home-lightning-bolt", false, 0);
+        add("is_charging",          "充电状态",            BINARY, "battery_charging", null, null, null,                 false, 0);
+        add("is_dcfc",              "直流快充",            BINARY, null,               null, null, "mdi:ev-station",     false, 0);
+        add("is_parked",            "驻车状态",            BINARY, null,               null, null, "mdi:car-brake-parking", false, 0);
+        add("charging_pct",         "充电进度",            SENSOR, "battery",          MEAS, "%",  "mdi:battery-charging", false, 1);
+        add("charging_eta_hours",   "充电剩余时间 (小时)", SENSOR, "duration",         null, "h",  "mdi:timer-sand",     false, 0);
+        add("charging_eta_minutes", "充电剩余时间 (分钟)", SENSOR, "duration",         null, "min","mdi:timer-sand",     false, 0);
+        add("charging_capacity_kwh","累计充电电量",        SENSOR, "energy",           TOTI, "kWh","mdi:battery-charging-high", false, 0.1);
+        add("charging_capacity_incomplete", "充电电量 (未完成)", BINARY, null,         null, null, "mdi:alert-circle-outline", true, 0);
+        add("charging_capacity_estimated",  "充电电量 (估算)",   BINARY, null,         null, null, "mdi:approximately-equal", true, 0);
+        add("charging_capacity_source",     "充电电量数据源",     SENSOR, "enum",      null, null, "mdi:source-branch", true, 0);
+        add("charging_v2l",         "对外放电 (V2L)",      BINARY, null,               null, null, "mdi:home-lightning-bolt", false, 0);
         // Published for the controllable charge-limit entities' state topics;
         // do not also create duplicate read-only sensor entities.
-        add("charge_cap_enabled",   "Charge Limit State",   NONE, null,                 null, null, null,                 true,  0);
-        add("charge_cap_percent",   "Charge Limit Percent", NONE, null,                 null, null, null,                 true,  0);
-        add("charging_state",       "Charging State",      SENSOR, "enum",             null, null, "mdi:battery-charging", true, 0);
-        add("charger_state",        "Charger State",       SENSOR, "enum",             null, null, "mdi:ev-station",     true,  0);
-        add("charging_mode",        "Charging Mode",       SENSOR, "enum",             null, null, "mdi:ev-station",     true,  0);
-        add("charging_gun",         "Charging Gun",        SENSOR, "enum",             null, null, "mdi:power-plug",     true,  0);
-        add("charging_type",        "Charging Type",       SENSOR, "enum",             null, null, "mdi:power-plug",     true,  0);
-        add("wireless_charging_left",  "Wireless Charging Left",  SENSOR, "enum", null, null, "mdi:battery-charging-wireless", true, 0);
-        add("wireless_charging_right", "Wireless Charging Right", SENSOR, "enum", null, null, "mdi:battery-charging-wireless", true, 0);
-        add("wireless_charging_status","Wireless Charging Status",SENSOR, "enum", null, null, "mdi:battery-charging-wireless", true, 0);
+        add("charge_cap_enabled",   "充电限制状态",        NONE, null,                 null, null, null,                 true,  0);
+        add("charge_cap_percent",   "充电限制百分比",      NONE, null,                 null, null, null,                 true,  0);
+        add("charging_state",       "充电阶段",            SENSOR, "enum",             null, null, "mdi:battery-charging", true, 0);
+        add("charger_state",        "充电机状态",          SENSOR, "enum",             null, null, "mdi:ev-station",     true,  0);
+        add("charging_mode",        "充电模式",            SENSOR, "enum",             null, null, "mdi:ev-station",     true,  0);
+        add("charging_gun",         "充电枪连接状态",      SENSOR, "enum",             null, null, "mdi:power-plug",     true,  0);
+        add("charging_type",        "充电类型",            SENSOR, "enum",             null, null, "mdi:power-plug",     true,  0);
+        add("wireless_charging_left",  "左侧无线充电",     SENSOR, "enum", null, null, "mdi:battery-charging-wireless", true, 0);
+        add("wireless_charging_right", "右侧无线充电",     SENSOR, "enum", null, null, "mdi:battery-charging-wireless", true, 0);
+        add("wireless_charging_status","无线充电状态",     SENSOR, "enum", null, null, "mdi:battery-charging-wireless", true, 0);
 
         // ---------- Range / consumption / trip ----------
-        add("ev_range_km",        "EV Range",           SENSOR, "distance", null, "km", "mdi:map-marker-distance", false, 1);
-        add("fuel_range_km",      "Fuel Range",         SENSOR, "distance", null, "km", "mdi:gas-station",         true,  1);
-        add("bodywork_range_km",  "Bodywork Range",     SENSOR, "distance", null, "km", "mdi:map-marker-distance", true,  1);
-        add("ev_mileage_km",      "EV Mileage",         SENSOR, "distance", TOTI, "km", "mdi:counter",             true,  1);
-        add("fuel_pct",           "Fuel Level",         SENSOR, null,       MEAS, "%",  "mdi:gas-station",         false, 1);
-        add("trip_km",            "Trip Distance",      SENSOR, "distance", null, "km", "mdi:map-marker-path",     false, 0.1);
-        add("trip_hours",         "Trip Time",          SENSOR, "duration", null, "h",  "mdi:timer",               false, 0);
-        add("trip_kwh",           "Trip Energy",        SENSOR, "energy",   null, "kWh","mdi:lightning-bolt",      false, 0.1);
-        add("consumption_50km",   "Consumption (50km)", SENSOR, null,       MEAS, "kWh/100 km", "mdi:lightning-bolt", false, 0.1);
-        add("driving_time_hours", "Driving Time",       SENSOR, "duration", null, "h",  "mdi:timer",               true,  0);
-        add("total_elec_con",     "Total Electricity",  SENSOR, "energy",   TOTI, "kWh","mdi:lightning-bolt",      true,  0.1);
-        add("total_fuel_con",     "Total Fuel",         SENSOR, null,       TOTI, "L",  "mdi:gas-station",         true,  0.1);
-        add("energy_mode",        "Energy Mode",        SENSOR, "enum",     null, null, "mdi:leaf",                true,  0);
-        add("op_mode",            "Operation Mode",     SENSOR, "enum",     null, null, "mdi:cog",                 true,  0);
+        add("ev_range_km",        "纯电续航里程",       SENSOR, "distance", null, "km", "mdi:map-marker-distance", false, 1);
+        add("fuel_range_km",      "燃油续航里程",       SENSOR, "distance", null, "km", "mdi:gas-station",         true,  1);
+        add("bodywork_range_km",  "仪表显示续航",       SENSOR, "distance", null, "km", "mdi:map-marker-distance", true,  1);
+        add("ev_mileage_km",      "纯电行驶总里程",     SENSOR, "distance", TOTI, "km", "mdi:counter",             true,  1);
+        add("fuel_pct",           "油箱油量",           SENSOR, null,       MEAS, "%",  "mdi:gas-station",         false, 1);
+        add("trip_km",            "单次里程",           SENSOR, "distance", null, "km", "mdi:map-marker-path",     false, 0.1);
+        add("trip_hours",         "单次行驶时长",       SENSOR, "duration", null, "h",  "mdi:timer",               false, 0);
+        add("trip_kwh",           "单次电耗",           SENSOR, "energy",   null, "kWh","mdi:lightning-bolt",      false, 0.1);
+        add("consumption_50km",   "近50km平均电耗",     SENSOR, null,       MEAS, "kWh/100 km", "mdi:lightning-bolt", false, 0.1);
+        add("driving_time_hours", "总行驶时间",         SENSOR, "duration", null, "h",  "mdi:timer",               true,  0);
+        add("total_elec_con",     "累计总用电量",       SENSOR, "energy",   TOTI, "kWh","mdi:lightning-bolt",      true,  0.1);
+        add("total_fuel_con",     "累计总耗油量",       SENSOR, null,       TOTI, "L",  "mdi:gas-station",         true,  0.1);
+        add("energy_mode",        "能量模式 (EV/HEV)",  SENSOR, "enum",     null, null, "mdi:leaf",                true,  0);
+        add("op_mode",            "驾驶模式",           SENSOR, "enum",     null, null, "mdi:cog",                 true,  0);
 
         // ---------- Temperatures ----------
-        add("ext_temp",            "Outside Temperature", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer",        false, 0.1);
-        add("batt_temp",           "Battery Temperature", SENSOR, "temperature", MEAS, "°C", "mdi:battery-heart-variant", false, 0.1);
-        add("cabin_temp",          "Cabin Temperature",   SENSOR, "temperature", MEAS, "°C", "mdi:home-thermometer",   false, 0.1);
-        add("inside_temp",         "Inside Temperature",  SENSOR, "temperature", MEAS, "°C", "mdi:home-thermometer",   true,  0.1);
-        add("coolant_temp",        "Coolant Temperature", SENSOR, "temperature", MEAS, "°C", "mdi:coolant-temperature",true,  0.1);
-        add("bodywork_batt_temp",  "Bodywork Batt Temp",  SENSOR, "temperature", MEAS, "°C", "mdi:thermometer",       true,  0.1);
-        add("cell_t_max",          "Cell Temp Max",       SENSOR, "temperature", MEAS, "°C", "mdi:thermometer-high",  true,  0.1);
-        add("cell_t_min",          "Cell Temp Min",       SENSOR, "temperature", MEAS, "°C", "mdi:thermometer-low",   true,  0.1);
-        add("cell_t_avg",          "Cell Temp Avg",       SENSOR, "temperature", MEAS, "°C", "mdi:thermometer",       true,  0.1);
-        add("cell_t_delta",        "Cell Temp Delta",     SENSOR, "temperature", MEAS, "°C", "mdi:thermometer-lines", true,  0.1);
+        add("ext_temp",            "车外温度",         SENSOR, "temperature", MEAS, "°C", "mdi:thermometer",        false, 0.1);
+        add("batt_temp",           "动力电池温度",     SENSOR, "temperature", MEAS, "°C", "mdi:battery-heart-variant", false, 0.1);
+        add("cabin_temp",          "座舱温度",         SENSOR, "temperature", MEAS, "°C", "mdi:home-thermometer",   false, 0.1);
+        add("inside_temp",         "车内温度",         SENSOR, "temperature", MEAS, "°C", "mdi:home-thermometer",   true,  0.1);
+        add("coolant_temp",        "冷却液温度",       SENSOR, "temperature", MEAS, "°C", "mdi:coolant-temperature",true,  0.1);
+        add("bodywork_batt_temp",  "车身电池温度",     SENSOR, "temperature", MEAS, "°C", "mdi:thermometer",       true,  0.1);
+        add("cell_t_max",          "电芯最高温度",     SENSOR, "temperature", MEAS, "°C", "mdi:thermometer-high",  true,  0.1);
+        add("cell_t_min",          "电芯最低温度",     SENSOR, "temperature", MEAS, "°C", "mdi:thermometer-low",   true,  0.1);
+        add("cell_t_avg",          "电芯平均温度",     SENSOR, "temperature", MEAS, "°C", "mdi:thermometer",       true,  0.1);
+        add("cell_t_delta",        "电芯最大温差",     SENSOR, "temperature", MEAS, "°C", "mdi:thermometer-lines", true,  0.1);
 
         // ---------- HV battery / cells / SOH ----------
-        add("soh",        "Battery Health (est)", SENSOR, "battery", MEAS, "%",  "mdi:battery-heart",     false, 0.1);
-        add("soh_oem",    "Battery Health (OEM)", SENSOR, "battery", MEAS, "%",  "mdi:battery-heart",     true,  0.1);
-        add("capacity",   "Usable Capacity",      SENSOR, "energy_storage", MEAS, "kWh", "mdi:battery",   false, 0.1);
-        add("capacity_ah", "Capacity",            SENSOR, null,      MEAS, "Ah", "mdi:battery",           true,  0.1);
-        add("hv_pack_v",  "HV Pack Voltage",      SENSOR, "voltage", MEAS, "V",  "mdi:flash",             true,  0.1);
-        add("cell_v_max", "Cell Voltage Max",     SENSOR, "voltage", MEAS, "V",  "mdi:flash",             true,  0.001);
-        add("cell_v_min", "Cell Voltage Min",     SENSOR, "voltage", MEAS, "V",  "mdi:flash-outline",     true,  0.001);
-        add("cell_v_delta","Cell Voltage Delta",  SENSOR, "voltage", MEAS, "V",  "mdi:sine-wave",         true,  0.001);
-        add("soc_hev",    "HEV State of Charge",  SENSOR, "battery", MEAS, "%",  "mdi:battery-50",        true,  0.1);
+        add("soh",        "电池健康度 (估算)", SENSOR, "battery", MEAS, "%",  "mdi:battery-heart",     false, 0.1);
+        add("soh_oem",    "电池健康度 (原厂)", SENSOR, "battery", MEAS, "%",  "mdi:battery-heart",     true,  0.1);
+        add("capacity",   "可用电池容量",      SENSOR, "energy_storage", MEAS, "kWh", "mdi:battery",   false, 0.1);
+        add("capacity_ah", "电池额定容量",     SENSOR, null,      MEAS, "Ah", "mdi:battery",           true,  0.1);
+        add("hv_pack_v",  "动力电池总电压",    SENSOR, "voltage", MEAS, "V",  "mdi:flash",             true,  0.1);
+        add("cell_v_max", "电芯最高电压",     SENSOR, "voltage", MEAS, "V",  "mdi:flash",             true,  0.001);
+        add("cell_v_min", "电芯最低电压",     SENSOR, "voltage", MEAS, "V",  "mdi:flash-outline",     true,  0.001);
+        add("cell_v_delta","电芯最大压差",     SENSOR, "voltage", MEAS, "V",  "mdi:sine-wave",         true,  0.001);
+        add("soc_hev",    "混动 SOC 状态",     SENSOR, "battery", MEAS, "%",  "mdi:battery-50",        true,  0.1);
 
         // ---------- 12V system ----------
-        add("volt_12v",        "12V Battery",       SENSOR, "voltage", MEAS, "V", "mdi:car-battery", false, 0.1);
-        add("volt_12v_level",  "12V Level",         SENSOR, "enum",    null, null,"mdi:car-battery", true,  0);
-        add("batt_12v_level",  "12V Level (body)",  SENSOR, "enum",    null, null,"mdi:car-battery", true,  0);
+        add("volt_12v",        "小电瓶电压",       SENSOR, "voltage", MEAS, "V", "mdi:car-battery", false, 0.1);
+        add("volt_12v_level",  "小电瓶电量等级",   SENSOR, "enum",    null, null,"mdi:car-battery", true,  0);
+        add("batt_12v_level",  "车身小电瓶等级",   SENSOR, "enum",    null, null,"mdi:car-battery", true,  0);
 
         // ---------- Drivetrain ----------
-        add("motor_front_rpm",   "Front Motor RPM",  SENSOR, null, MEAS, "rpm", "mdi:engine",        true, 1);
-        add("motor_rear_rpm",    "Rear Motor RPM",   SENSOR, null, MEAS, "rpm", "mdi:engine",        true, 1);
-        add("motor_front_torque","Front Motor Torque",SENSOR,null, MEAS, "Nm",  "mdi:engine",        true, 1);
-        add("engine_rpm",        "Engine RPM",       SENSOR, null, MEAS, "rpm", "mdi:engine",        true, 1);
-        add("accel_pct",         "Accelerator",      SENSOR, null, MEAS, "%",   "mdi:car-cruise-control", true, 1);
-        add("brake_pct",         "Brake",            SENSOR, null, MEAS, "%",   "mdi:car-brake-alert",    true, 1);
-        add("steering_deg",      "Steering Angle",   SENSOR, null, MEAS, "°",   "mdi:steering",      true, 1);
-        add("slope_deg",         "Road Slope",       SENSOR, null, MEAS, "°",   "mdi:angle-acute",   true, 0.5);
+        add("motor_front_rpm",   "前电机转速",     SENSOR, null, MEAS, "rpm", "mdi:engine",        true, 1);
+        add("motor_rear_rpm",    "后电机转速",     SENSOR, null, MEAS, "rpm", "mdi:engine",        true, 1);
+        add("motor_front_torque","前电机扭矩",     SENSOR, null, MEAS, "Nm",  "mdi:engine",        true, 1);
+        add("engine_rpm",        "发动机转速",     SENSOR, null, MEAS, "rpm", "mdi:engine",        true, 1);
+        add("accel_pct",         "油门踏板开度",   SENSOR, null, MEAS, "%",   "mdi:car-cruise-control", true, 1);
+        add("brake_pct",         "刹车踏板开度",   SENSOR, null, MEAS, "%",   "mdi:car-brake-alert",    true, 1);
+        add("steering_deg",      "方向盘转角",     SENSOR, null, MEAS, "°",   "mdi:steering",      true, 1);
+        add("slope_deg",         "道路坡度",       SENSOR, null, MEAS, "°",   "mdi:angle-acute",   true, 0.5);
 
         // ---------- Tyres ----------
-        add("tyre_p_fl", "Tyre Pressure FL", SENSOR, "pressure", MEAS, "kPa", "mdi:car-tire-alert", false, 1);
-        add("tyre_p_fr", "Tyre Pressure FR", SENSOR, "pressure", MEAS, "kPa", "mdi:car-tire-alert", false, 1);
-        add("tyre_p_rl", "Tyre Pressure RL", SENSOR, "pressure", MEAS, "kPa", "mdi:car-tire-alert", false, 1);
-        add("tyre_p_rr", "Tyre Pressure RR", SENSOR, "pressure", MEAS, "kPa", "mdi:car-tire-alert", false, 1);
-        add("tyre_t_fl", "Tyre Temp FL", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", true, 1);
-        add("tyre_t_fr", "Tyre Temp FR", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", true, 1);
-        add("tyre_t_rl", "Tyre Temp RL", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", true, 1);
-        add("tyre_t_rr", "Tyre Temp RR", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", true, 1);
-        add("tyre_system_state", "TPMS System State", SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
-        add("tyre_temp_state",   "TPMS Temp State",   SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_p_fl", "左前轮胎压", SENSOR, "pressure", MEAS, "kPa", "mdi:car-tire-alert", false, 1);
+        add("tyre_p_fr", "右前轮胎压", SENSOR, "pressure", MEAS, "kPa", "mdi:car-tire-alert", false, 1);
+        add("tyre_p_rl", "左后轮胎压", SENSOR, "pressure", MEAS, "kPa", "mdi:car-tire-alert", false, 1);
+        add("tyre_p_rr", "右后轮胎压", SENSOR, "pressure", MEAS, "kPa", "mdi:car-tire-alert", false, 1);
+        add("tyre_t_fl", "左前轮胎温", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", true, 1);
+        add("tyre_t_fr", "右前轮胎温", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", true, 1);
+        add("tyre_t_rl", "左后轮胎温", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", true, 1);
+        add("tyre_t_rr", "右后轮胎温", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", true, 1);
+        add("tyre_system_state", "胎压监测系统状态", SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_temp_state",   "胎温监测状态",     SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_p_state_fl",   "左前胎压状态",     SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_p_state_fr",   "右前胎压状态",     SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_p_state_rl",   "左后胎压状态",     SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_p_state_rr",   "右后胎压状态",     SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_leak_fl",      "左前胎漏气报警",   SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_leak_fr",      "右前胎漏气报警",   SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_leak_rl",      "左后胎漏气报警",   SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_leak_rr",      "右后胎漏气报警",   SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_signal_fl",    "左前胎传感器信号", SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_signal_fr",    "右前胎传感器信号", SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_signal_rl",    "左后胎传感器信号", SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
+        add("tyre_signal_rr",    "右后胎传感器信号", SENSOR, "enum", null, null, "mdi:car-tire-alert", true, 0);
 
         // ---------- Lights (booleans) ----------
-        add("light_low_beam",  "Low Beam",   BINARY, "light", null, null, "mdi:car-light-dimmed", true, 0);
-        add("light_high_beam", "High Beam",  BINARY, "light", null, null, "mdi:car-light-high",   true, 0);
-        add("light_rear_fog",  "Rear Fog",   BINARY, "light", null, null, "mdi:car-light-fog",    true, 0);
-        add("light_front_fog", "Front Fog",  BINARY, "light", null, null, "mdi:car-light-fog",    true, 0);
-        add("light_hazard",    "Hazards",    BINARY, "light", null, null, "mdi:car-light-alert",  true, 0);
-        add("light_drl",       "Daytime Running Lights", BINARY, "light", null, null, "mdi:car-light-dimmed", true, 0);
-        add("ambient_colour",  "Ambient Lights Colour",  SENSOR, null,   MEAS, null, "mdi:format-color-fill", true, 0);
+        add("light_low_beam",  "近光灯",         BINARY, "light", null, null, "mdi:car-light-dimmed", true, 0);
+        add("light_high_beam", "远光灯",         BINARY, "light", null, null, "mdi:car-light-high",   true, 0);
+        add("light_rear_fog",  "后雾灯",         BINARY, "light", null, null, "mdi:car-light-fog",    true, 0);
+        add("light_front_fog", "前雾灯",         BINARY, "light", null, null, "mdi:car-light-fog",    true, 0);
+        add("light_hazard",    "双闪危险报警灯", BINARY, "light", null, null, "mdi:car-light-alert",  true, 0);
+        add("light_drl",       "日间行车灯",     BINARY, "light", null, null, "mdi:car-light-dimmed", true, 0);
+        add("ambient_colour",  "氛围灯颜色",     SENSOR, null,   MEAS, null, "mdi:format-color-fill", true, 0);
         // Ambient main-switch state (1=on/0=off). Published only when the vehicle reports it —
         // see MqttConnectionManager — so this stays unavailable on a trim that cannot read it
         // rather than reporting a false "off". The controllable twin is the ambient_power switch.
-        add("ambient_enabled", "Ambient Lights State",   BINARY, "light", null, null, "mdi:track-light", true, 0);
-        add("light_left_turn", "Left Turn Signal",  SENSOR, "enum", null, null, "mdi:arrow-left-bold", true, 0);
-        add("light_right_turn","Right Turn Signal", SENSOR, "enum", null, null, "mdi:arrow-right-bold", true, 0);
+        add("ambient_enabled", "氛围灯开关状态", BINARY, "light", null, null, "mdi:track-light", true, 0);
+        add("light_left_turn", "左转向灯",       SENSOR, "enum", null, null, "mdi:arrow-left-bold", true, 0);
+        add("light_right_turn","右转向灯",       SENSOR, "enum", null, null, "mdi:arrow-right-bold", true, 0);
 
         // ---------- Climate ----------
-        add("ac_on",     "A/C",          SENSOR, "enum", null, null, "mdi:air-conditioner", true, 0);
-        add("ac_cycle",  "A/C Cycle",    SENSOR, "enum", null, null, "mdi:air-conditioner", true, 0);
-        add("ac_wind",   "A/C Wind Mode",SENSOR, "enum", null, null, "mdi:air-conditioner", true, 0);
-        add("ac_fan",    "A/C Fan Level",SENSOR, null,   MEAS, null, "mdi:fan",             true, 0);
-        add("temp_unit", "Temp Unit",    SENSOR, "enum", null, null, "mdi:temperature-celsius", true, 0);
+        add("ac_on",           "空调开关",      SENSOR, "enum", null, null, "mdi:air-conditioner", true, 0);
+        add("ac_cycle",        "内外循环",      SENSOR, "enum", null, null, "mdi:air-conditioner", true, 0);
+        add("ac_wind",         "出风模式",      SENSOR, "enum", null, null, "mdi:air-conditioner", true, 0);
+        add("ac_fan",          "空调风量",      SENSOR, null,   MEAS, null, "mdi:fan",             true, 0);
+        add("temp_unit",       "温度单位",      SENSOR, "enum", null, null, "mdi:temperature-celsius", true, 0);
+        add("climate_setpoint","主驾设定温度",  SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", false, 0.5);
+        add("climate_setpoint_passenger", "副驾设定温度", SENSOR, "temperature", MEAS, "°C", "mdi:thermometer", true, 0.5);
         // Published (normalized 1/0) for the steering_heat control switch's state topic;
         // do not also create a duplicate read-only sensor entity.
-        add("steering_wheel_heat", "Steering Wheel Heating State", NONE, null, null, null, null, true, 0);
+        add("steering_wheel_heat", "方向盘加热状态", NONE, null, null, null, null, true, 0);
 
         // ---------- Bodywork ----------
-        add("wiper_state",   "Wipers",        SENSOR, "enum", null, null, "mdi:wiper",          true, 0);
-        add("sunroof_state", "Sunroof State", SENSOR, "enum", null, null, "mdi:window-shutter", true, 0);
-        add("sunroof_pos",   "Sunroof Position", SENSOR, null, MEAS, "%", "mdi:window-shutter", true, 1);
-        add("sunshade_pct",  "Sunshade",      SENSOR, null,   MEAS, "%",  "mdi:blinds",         true, 1);
-        add("drift_mode",    "Drift Mode",    BINARY, null,   null, null, "mdi:car-sports",     true, 0);
+        add("wiper_state",   "雨刮状态",      SENSOR, "enum", null, null, "mdi:wiper",          true, 0);
+        add("sunroof_state", "天窗状态",      SENSOR, "enum", null, null, "mdi:window-shutter", true, 0);
+        add("sunroof_pos",   "天窗开启度",    SENSOR, null, MEAS, "%", "mdi:window-shutter", true, 1);
+        add("sunshade_pct",  "遮阳帘开启度",  SENSOR, null,   MEAS, "%",  "mdi:blinds",         true, 1);
+        add("drift_mode",    "漂移模式",      BINARY, null,   null, null, "mdi:car-sports",     true, 0);
 
         // ---------- Engine (PHEV) ----------
-        add("engine_coolant_level", "Engine Coolant Level", SENSOR, "enum", null, null, "mdi:coolant-temperature", true, 0);
-        add("oil_level",            "Oil Level",            SENSOR, null,   MEAS, null, "mdi:oil-level", true, 1);
-        add("engine_code",          "Engine Code",          SENSOR, null,   null, null, "mdi:engine",    true, 0);
+        add("engine_coolant_level", "发动机冷却液液位", SENSOR, "enum", null, null, "mdi:coolant-temperature", true, 0);
+        add("oil_level",            "机油液位",         SENSOR, null,   MEAS, null, "mdi:oil-level", true, 1);
+        add("engine_code",          "发动机故障码",     SENSOR, null,   null, null, "mdi:engine",    true, 0);
 
         // ---------- Safety / ADAS ----------
-        add("speed_limit_warning", "Speed Limit Warning", BINARY, "problem", null, null, "mdi:speedometer-slow", true, 0);
+        add("speed_limit_warning",      "超速报警",          BINARY, "problem", null, null, "mdi:speedometer-slow", true, 0);
         // Child Presence Detection setting state (on/off). Published as 1/0 so the adas_cpd
         // control switch's state_topic (child_presence_detection) reflects real state, matching
         // the speed_limit_warning pattern. No "problem" device_class — CPD-on is the desired state.
-        add("child_presence_detection", "Child Presence Detection", BINARY, null, null, null, "mdi:car-child-seat", true, 0);
-        add("emergency_alarm",     "Emergency Alarm",     SENSOR, "enum", null, null, "mdi:alarm-light",     true, 0);
+        add("child_presence_detection", "后排遗留儿童检测",  BINARY, null, null, null, "mdi:car-child-seat", true, 0);
+        add("emergency_alarm",          "紧急报警",          SENSOR, "enum", null, null, "mdi:alarm-light",     true, 0);
         // Ignition/accessory level (off/acc/on) — the twin of the automation `power` signal.
         // Named "Vehicle Power State" to keep it distinct from `power` (drive-motor kW) above.
-        add("power_level",         "Vehicle Power State", SENSOR, "enum", null, null, "mdi:power",           true, 0);
-        add("mcu_status",          "MCU Status",          SENSOR, "enum", null, null, "mdi:chip",            true, 0);
+        add("power_level",              "整车电源状态 (OK挡/OFF)", SENSOR, "enum", null, null, "mdi:power",   true, 0);
+        add("mcu_status",               "车机 MCU 状态",     SENSOR, "enum", null, null, "mdi:chip",            true, 0);
 
         // ---------- Air quality ----------
-        add("pm25_inside",  "PM2.5 Inside",  SENSOR, "pm25", MEAS, "µg/m³", "mdi:air-filter", false, 1);
-        add("pm25_outside", "PM2.5 Outside", SENSOR, "pm25", MEAS, "µg/m³", "mdi:weather-hazy", false, 1);
+        add("pm25_inside",  "车内 PM2.5",  SENSOR, "pm25", MEAS, "µg/m³", "mdi:air-filter", false, 1);
+        add("pm25_outside", "车外 PM2.5", SENSOR, "pm25", MEAS, "µg/m³", "mdi:weather-hazy", false, 1);
 
         // ---------- Key / identity ----------
-        add("key_battery",            "Key Battery",        SENSOR, "enum", null, null, "mdi:key-wireless", true, 0);
-        add("key_start_state",        "Key Start State",    SENSOR, "enum", null, null, "mdi:key-wireless", true, 0);
-        add("key_missing",            "Key Missing",        SENSOR, "enum", null, null, "mdi:key-alert",    true, 0);
-        add("key_bt_low_power",       "Key BT Low Power",   SENSOR, "enum", null, null, "mdi:key-wireless", true, 0);
-        add("key_power_low",          "Key Power Low",      SENSOR, "enum", null, null, "mdi:key-alert",    true, 0);
-        add("key_detection_reminder", "Key Detection",      SENSOR, "enum", null, null, "mdi:key-wireless", true, 0);
-        add("smart_key_warn",         "Smart Key Warning",  SENSOR, "enum", null, null, "mdi:key-alert",    true, 0);
-        add("vin",                    "VIN",                SENSOR, null,   null, null, "mdi:identifier",   true, 0);
+        add("key_battery",            "车钥匙电量",     SENSOR, "enum", null, null, "mdi:key-wireless", true, 0);
+        add("key_start_state",        "钥匙启动状态",   SENSOR, "enum", null, null, "mdi:key-wireless", true, 0);
+        add("key_missing",            "钥匙未检测到",   SENSOR, "enum", null, null, "mdi:key-alert",    true, 0);
+        add("key_bt_low_power",       "蓝牙钥匙低电量", SENSOR, "enum", null, null, "mdi:key-wireless", true, 0);
+        add("key_power_low",          "钥匙电量低",     SENSOR, "enum", null, null, "mdi:key-alert",    true, 0);
+        add("key_detection_reminder", "钥匙感应提醒",   SENSOR, "enum", null, null, "mdi:key-wireless", true, 0);
+        add("smart_key_warn",         "智能钥匙报警",   SENSOR, "enum", null, null, "mdi:key-alert",    true, 0);
+        add("vin",                    "车架号 (VIN)",   SENSOR, null,   null, null, "mdi:identifier",   true, 0);
 
         // ---------- Arrays / time: present but not mapped to entities ----------
-        add("door_lock",            "Door Lock",            NONE, null, null, null, null, true, 0);
-        add("window_open",          "Window Open",          NONE, null, null, null, null, true, 0);
-        add("seatbelt",             "Seatbelt",             NONE, null, null, null, null, true, 0);
-        add("seat_heat",            "Seat Heat",            NONE, null, null, null, null, true, 0);
-        add("seat_cool",            "Seat Cool",            NONE, null, null, null, null, true, 0);
-        add("passenger_detection",  "Passenger Detection",  NONE, null, null, null, null, true, 0);
-        add("radar_distances",      "Radar Distances",      NONE, null, null, null, null, true, 0);
-        add("utc",                  "UTC",                  NONE, null, null, null, null, true, 0);
-        add("vd_timestamp",         "Snapshot Timestamp",   NONE, null, null, null, null, true, 0);
+        add("door_lock",            "车门锁状态",   NONE, null, null, null, null, true, 0);
+        add("window_open",          "车窗开闭状态", NONE, null, null, null, null, true, 0);
+        add("seatbelt",             "安全带状态",   NONE, null, null, null, null, true, 0);
+        add("seat_heat",            "座椅加热",     NONE, null, null, null, null, true, 0);
+        add("seat_cool",            "座椅通风",     NONE, null, null, null, null, true, 0);
+        add("passenger_detection",  "乘员检测",     NONE, null, null, null, null, true, 0);
+        add("radar_distances",      "雷达测距",     NONE, null, null, null, null, true, 0);
+        add("utc",                  "UTC时间",      NONE, null, null, null, null, true, 0);
+        add("vd_timestamp",         "数据时间戳",   NONE, null, null, null, null, true, 0);
     }
 
     private TelemetryFieldCatalog() {}

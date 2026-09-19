@@ -130,7 +130,7 @@ public final class HomeAssistantDiscovery {
             if (hasLat && hasLon) {
                 JSONObject tracker = new JSONObject();
                 tracker.put("p", "device_tracker");
-                tracker.put("name", "Location");
+                tracker.put("name", "车辆位置");
                 tracker.put("unique_id", node + "_location");
                 tracker.put("json_attributes_topic", locationTopic(baseTopic));
                 tracker.put("source_type", "gps");
@@ -196,8 +196,8 @@ public final class HomeAssistantDiscovery {
     }
 
     private static String deviceName(String model, String vin) {
-        if (model != null && !model.isEmpty()) return "OverDrive (" + model + ")";
-        if (vin != null && vin.length() >= 6) return "OverDrive (" + vin.substring(vin.length() - 6) + ")";
-        return "OverDrive Vehicle";
+        if (model != null && !model.isEmpty()) return "比亚迪 (" + model + ")";
+        if (vin != null && vin.length() >= 6) return "比亚迪 (" + vin.substring(vin.length() - 6) + ")";
+        return "比亚迪汽车";
     }
 }
