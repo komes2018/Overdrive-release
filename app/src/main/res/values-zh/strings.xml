@@ -1117,7 +1117,7 @@
     <string name="roadsense_map_status_candidate">候选人</string>
     <string name="roadsense_map_status_local">在设备上</string>
     <string name="roadsense_map_status_cloud">共享的</string>
-    <string name="roadsense_map_meta_format">%1$s · 置信度 %2$d%% · %3$s</string>
+    <string name="roadsense_map_meta_format">%1$s · 识别可信度 %2$d%% · %3$s</string>
     <string name="roadsense_map_confirmed_toast">危险已确认</string>
     <string name="roadsense_map_deleted_toast">已移除危险</string>
     <string name="roadsense_map_action_failed">无法到达RoadSense。请重试。</string>

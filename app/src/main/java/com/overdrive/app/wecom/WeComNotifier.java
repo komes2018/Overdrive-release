@@ -68,12 +68,12 @@ public class WeComNotifier {
         motionExecutor.execute(() -> {
             String label = localizeDetection(aiDetection);
             String camStr = camera != null ? "（" + localizeCamera(camera) + "摄像头）" : "";
-            String sevStr = "CRITICAL".equals(severity) ? "🚨 紧急" :
-                    "ALERT".equals(severity) ? "⚠️ 警报" : "🔍 检测";
-            String pct = String.format(Locale.US, "%.0f%%", confidence * 100);
+            String sevStr = "CRITICAL".equals(severity) ? "🚨 **紧急提醒**：" :
+                    "ALERT".equals(severity) ? "⚠️ **安全警报**：" : "🔍 **哨兵动检**：";
+            String confText = formatConfidence(confidence);
 
-            String msg = sevStr + " 车辆周围发现" + label + camStr + "\n"
-                    + "> 置信度：" + pct + "\n"
+            String msg = sevStr + "车辆周围发现" + label + camStr + "\n"
+                    + "> 识别可信度：" + confText + "\n"
                     + "> " + nowStr();
             WeComSink.sendMarkdown(msg);
         });
@@ -90,10 +90,10 @@ public class WeComNotifier {
         motionExecutor.execute(() -> {
             String label = localizeDetection(aiDetection);
             String msg = "📹 **哨兵录像已保存**\n"
-                    + "> 触发：" + label + "\n"
-                    + "> 时长：" + durationSec + " 秒\n"
-                    + "> 文件：`" + videoFilename + "`\n"
-                    + "> 可在 OverDrive 网页端 → 事件录像 中查看\n"
+                    + "> 触发原因：" + label + "\n"
+                    + "> 录像时长：" + durationSec + " 秒\n"
+                    + "> 录像文件：`" + videoFilename + "`\n"
+                    + "> 可在网页端「事件录像」中查看回放\n"
                     + "> " + nowStr();
             WeComSink.sendMarkdown(msg);
         });
@@ -204,6 +204,19 @@ public class WeComNotifier {
             return sb.toString();
         } catch (Exception e) {
             return "";
+        }
+    }
+
+    private static String formatConfidence(float confidence) {
+        String pct = String.format(Locale.US, "%.0f%%", confidence * 100);
+        if (confidence >= 0.85f) {
+            return "极高 (" + pct + ")";
+        } else if (confidence >= 0.70f) {
+            return "较高 (" + pct + ")";
+        } else if (confidence >= 0.50f) {
+            return "中等 (" + pct + ")";
+        } else {
+            return "疑似 (" + pct + ")";
         }
     }
 

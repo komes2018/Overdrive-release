@@ -184,7 +184,7 @@
     "overlay_show_desc": "在屏幕上显示悬浮的 RoadSense 胶囊卡片与路况预警。关闭此项可隐藏浮窗 — 隐患检测、语音告警和路况众包仍会在后台正常运行，仅隐藏屏幕界面显示。",
     "detect_title": "检测",
     "detect_sensitivity": "检测灵敏度",
-    "detect_sensitivity_desc": "RoadSense 识别颠簸、坑洼或减速带的灵敏度。默认调校为 50%。滑块调高可捕捉更轻微的路面颠簸（但误报可能会增多）；滑块调低则仅标记明显强烈的路面冲击。此项控制检测识别门槛，与下方的预警最低置信度不同。",
+    "detect_sensitivity_desc": "RoadSense 识别颠簸、坑洼或减速带的灵敏度。默认调校为 50%。滑块调高可捕捉更轻微的路面颠簸（但误报可能会增多）；滑块调低则仅标记明显强烈的路面冲击。此项控制检测识别门槛，与下方的预警最低可信度门槛不同。",
     "detect_sensitivity_min": "最低",
     "detect_sensitivity_max": "最高",
     "warn_title": "警告",
